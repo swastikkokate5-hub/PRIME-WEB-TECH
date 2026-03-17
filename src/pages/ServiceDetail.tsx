@@ -52,10 +52,10 @@ const ServiceDetail: React.FC = () => {
   // Map service ID to project category
   const getCategoryForService = (serviceId: string): ProjectCategory | undefined => {
     const categoryMap: Record<string, ProjectCategory> = {
-      'website-development': 'websites',
-      'app-development': 'apps',
-      'ai-chatbot': 'ai',
-      'calling-agent': 'ai',
+      'web-dev': 'websites',
+      'app-dev': 'apps',
+      'ai-services': 'ai',
+      'ai-voice-bot': 'ai',
       'whatsapp-bot': 'whatsapp',
       'system-design': 'design',
       'automation': 'ai',
@@ -133,27 +133,16 @@ const ServiceDetail: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Features and Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
-          {service.features.map((feature, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-12 rounded-[3rem] glass hover:gold-gradient hover:text-black transition-all duration-700 shadow-2xl group border-none glow-gold-hover premium-shadow"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-black/20 text-primary group-hover:text-black transition-all">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-black mb-4 tracking-tighter uppercase">Elite Capability</h3>
-              <p className="text-muted-foreground group-hover:text-black/80 text-sm font-bold leading-relaxed">
-                {feature}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Service-Specific Portfolio Section - REPLACES Elite Capability Section */}
+        {serviceCategory && (
+          <PortfolioSection 
+            filterByCategory={serviceCategory}
+            showFilters={false}
+            title={`${service.title} Projects`}
+            subtitle={`Explore our portfolio of ${service.title.toLowerCase()} projects delivered for real businesses.`}
+            maxProjects={6}
+          />
+        )}
 
         {/* Workflow Section */}
         <section className="py-24 bg-secondary/10 rounded-[3rem] px-8 md:px-16 relative overflow-hidden mb-24">
@@ -224,7 +213,7 @@ const ServiceDetail: React.FC = () => {
         </section>
 
         {/* Final CTA */}
-        <section className="text-center py-24 rounded-[3.5rem] bg-[#0a0a0a] border border-primary/20 relative overflow-hidden group mb-24">
+        <section className="text-center py-24 rounded-[3.5rem] bg-[#0a0a0a] border border-primary/20 relative overflow-hidden group">
           <div className="absolute inset-0 bg-grid opacity-5" />
           <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
           <Target className="absolute -top-20 -right-20 w-64 h-64 text-primary/5 animate-float" />
@@ -234,17 +223,6 @@ const ServiceDetail: React.FC = () => {
             <Link to="/contact">Get a Quote Now</Link>
           </Button>
         </section>
-
-        {/* Service-Specific Portfolio Section */}
-        {serviceCategory && (
-          <PortfolioSection 
-            filterByCategory={serviceCategory}
-            showFilters={false}
-            title={`${service.title} Projects`}
-            subtitle={`Explore our portfolio of ${service.title.toLowerCase()} projects delivered for real businesses.`}
-            maxProjects={6}
-          />
-        )}
       </div>
     </div>
   );
