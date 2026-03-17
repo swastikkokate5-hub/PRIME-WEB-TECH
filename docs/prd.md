@@ -6,7 +6,7 @@
 Prime Web Tech
 
 ### 1.2 Application Description
-A premium, production-ready business website for Prime Web Tech, a high-end digital technology service company. The website showcases comprehensive tech solutions including website development, mobile app development, AI services, automation tools, and more. Features a sophisticated gold and black theme with glassmorphism effects, smooth creative animations, and modern SaaS-inspired design. Fully optimized for security, SEO, responsiveness, and performance.
+A premium, production-ready business website for Prime Web Tech, a high-end digital technology service company. The website showcases comprehensive tech solutions including website development, mobile app development, AI services, automation tools, and more. Features a sophisticated gold and black theme with glassmorphism effects, optimized smooth animations, and modern SaaS-inspired design. Fully optimized for security, SEO, responsiveness, performance, and lightweight smooth experience with no lag.
 
 ### 1.3 Application Type
 Web - Business Website
@@ -23,13 +23,13 @@ Web - Business Website
 - Hero section with main heading: Prime Web Tech — Building Future With AI & Modern Technology
 - Subtext: We create websites, apps, AI systems, and automation tools for modern businesses.
 - Call-to-action buttons: Get Started, View Services, Contact Us
-- Creative animated background with:
-  - Moving gold and white circles
-  - Soft light rays
-  - Blur glow behind text
-  - Floating particles
-  - Gradient background motion
-  - Smooth text animation
+- Optimized animated background with:
+  - Small floating gold and white circles (reduced quantity)
+  - Soft light rays (minimal)
+  - Light blur glow behind text (reduced layers)
+  - Minimal floating particles (reduced quantity)
+  - Subtle gradient background motion (slow and light)
+  - Simple smooth text animation (fade in only)
 - Service cards preview section
 - Why choose us section
 - Company stats section
@@ -51,8 +51,8 @@ Each service card includes:
 - Icon
 - Title
 - Short description
-- Hover animation with gold border effect and card lift
-- Action button with glow animation
+- Simple hover animation with gold border effect and light card lift
+- Action button with minimal glow animation
 
 ### 2.3 Service Detail Page
 Dynamic template for individual service pages containing:
@@ -104,16 +104,16 @@ Pricing tiers with premium UI cards in Indian Rupees:
   - Pricing
   - About
   - Contact
-- Sticky navbar with blur background
+- Sticky navbar with light blur background (reduced blur layers)
 - Correct spacing and font size
 - Mobile menu functionality
 
 ### 2.8 Project Showcase Section
 - Responsive cards
-- Video preview
-- Image display
+- Video preview with lazy loading (preview image first, load video only when clicked, no autoplay)
+- Optimized image display with lazy loading
 - Proper spacing
-- Smooth hover effects
+- Simple smooth hover effects
 
 ## 3. Design Requirements
 
@@ -121,7 +121,7 @@ Pricing tiers with premium UI cards in Indian Rupees:
 - Premium, luxury, modern UI design
 - Professional startup aesthetic inspired by Stripe, Apple, OpenAI, Tesla
 - Clean and minimalist layout
-- Glassmorphism effects with gradient and blur
+- Light glassmorphism effects with minimal gradient and blur
 - Fully responsive design for mobile, tablet, laptop, and large screen devices
 - No UI bugs, no overflow, no broken layout
 
@@ -130,44 +130,56 @@ Pricing tiers with premium UI cards in Indian Rupees:
 - Accent color: Gold #d4af37
 - Secondary color: Dark gold #b8962e
 - White: #ffffff
-- Glass blur + gradient effects
+- Light glass blur + minimal gradient effects
 
 ### 3.3 Interactive Effects
-- Smooth scroll animation
+Allowed lightweight animations:
+- Smooth scroll animation (simple)
 - Fade-in sections
-- Floating light circles (gold and white)
-- Glowing particles
-- Soft gradient movement
-- Background motion
-- Parallax effect
-- Glass blur animation
-- Hover glow effects
-- Card lift animation
-- Button glow animation
-- Text reveal animation
-- Gradient light sweep effect
-- Gradient borders
+- Small floating light circles (gold and white, reduced quantity)
+- Minimal glowing particles (reduced quantity)
+- Subtle gradient movement (slow)
+- Light parallax effect (minimal)
+- Light glass blur animation (reduced layers)
+- Simple hover glow effects (minimal)
+- Light card lift animation (small movement)
+- Minimal button glow animation
+- Simple text reveal animation (fade in only)
+- Light gradient light sweep effect
+- Minimal gradient borders
 - Smooth transitions
-- Loading animation
-- Shadow effects for depth
+- Simple loading animation
+- Light shadow effects for depth (reduced)
+
+Not allowed (removed or minimized):
+- Too many particles
+- Too many shadows
+- Heavy blur layers
+- Too many gradients
+- Large motion effects
+- 3D heavy effects
+- Heavy parallax
+- Heavy transform effects
 
 Animation requirements:
 - Smooth and premium
-- Creative and professional
-- Not heavy or laggy
-- Optimized performance
+- Lightweight and optimized
+- Minimal but professional
+- No lag or heavy performance impact
+- Reduced on mobile devices
 
 ### 3.4 Typography & UI Elements
 - Professional modern fonts with balanced font scale:
-  - Hero: large but balanced
-  - Heading: medium
-  - Text: normal
-  - Button: medium
-  - Navbar: small
+  - Hero: large but balanced (normal font weight)
+  - Heading: medium (normal font weight)
+  - Text: normal (normal font weight)
+  - Button: medium (normal font weight)
+  - Navbar: small (normal font weight)
 - Rounded modern UI components
-- Soft shadows
+- Light soft shadows (reduced)
 - Consistent spacing and padding
 - No oversized text
+- Font loaded once for optimization
 
 ### 3.5 Responsive Design
 - Mobile:
@@ -180,6 +192,10 @@ Animation requirements:
   - Fixed card width
   - Fixed navbar
   - Fixed hero text
+  - Reduced animations for smooth performance
+  - Reduced blur effects
+  - Reduced shadow effects
+  - Mobile performance priority
 - Tablet:
   - Correct grid layout
 - Desktop:
@@ -202,13 +218,41 @@ Animation requirements:
 - Reusable components
 - Proper file organization
 - No console errors
+- Remove unused scripts
+- Remove duplicate code
+- Use optimized components
+- Avoid re-render loops
 
 ### 4.2 Performance Optimization
 - Fast loading
-- Optimized images (lazy loading)
-- Optimized animations
-- Reduced heavy effects
+- Optimized images:
+  - Compressed images
+  - Optimized format
+  - Lazy loading
+  - Reduced image size
+  - No very large banners
+- Optimized animations:
+  - Reduced heavy effects
+  - Minimal particles
+  - Reduced blur layers
+  - Light background animation
+- Optimized video:
+  - Preview image first
+  - Load video only when clicked
+  - No autoplay all videos
 - Efficient rendering
+- Lightweight CSS:
+  - Reduced box shadows
+  - Reduced blur filters
+  - Reduced gradient layers
+  - Reduced multiple borders
+  - Reduced heavy glow
+  - Simple clean UI
+- Optimized scroll animation:
+  - Simple fade in
+  - Small slide up
+  - No heavy parallax
+  - No heavy transform
 
 ### 4.3 Security Features
 - HTTPS ready
@@ -243,9 +287,11 @@ Animation requirements:
 ### 5.3 User Experience
 - Smooth scrolling between sections
 - Smooth page transitions
-- Page loading animation
+- Simple page loading animation
 - Responsive navigation for mobile devices
 - Optimized performance for fast loading
+- Very smooth experience with no lag
+- Lightweight and fast
 
 ### 5.4 Footer
 - Professional footer design
@@ -284,7 +330,7 @@ The website must achieve:
 - Fully responsive layout
 - Secure implementation
 - SEO optimized structure
-- Smooth animated interactions
+- Smooth lightweight animated interactions
 - Very attractive visual design
 - Professional presentation
 - Unique design identity
@@ -293,3 +339,9 @@ The website must achieve:
 - Perfect spacing
 - Perfect font sizing
 - Ready for deployment
+- Very smooth performance
+- No lag
+- Fast loading
+- Lightweight experience
+- Mobile friendly with optimized performance
+- Still premium and modern with minimal but professional animations

@@ -31,18 +31,18 @@ const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? 'py-4 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm' : 'py-6 bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'py-4 bg-background/85 backdrop-blur-md border-b border-border/50 shadow-sm' : 'py-6 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
+            <div className="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
               <Rocket className="w-5 h-5 text-black" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-black tracking-tighter leading-none group-hover:text-primary transition-colors duration-500">
+              <span className="text-xl font-black tracking-tighter leading-none group-hover:text-primary transition-colors duration-300">
                 PRIME WEB TECH
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/80">
@@ -103,14 +103,15 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Optimized */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border mt-4 overflow-hidden shadow-xl"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border mt-4 overflow-hidden shadow-lg"
           >
             <div className="flex flex-col gap-6 p-8">
               {navLinks.map((link) => (
@@ -118,14 +119,14 @@ const Navbar: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-xl font-bold uppercase tracking-widest ${
+                  className={`text-lg font-bold uppercase tracking-wide transition-colors ${
                     isActive(link.path) ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Button asChild className="rounded-full gold-gradient text-black font-bold mt-4 border-none h-12 text-lg w-full">
+              <Button asChild className="rounded-full gold-gradient text-black font-bold mt-4 border-none h-12 w-full">
                 <Link to="/contact">Get Started</Link>
               </Button>
             </div>

@@ -47,20 +47,20 @@ const About: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />
-      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none -z-10" />
+      {/* Background Decor - Optimized */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
+      <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <section className="text-center max-w-5xl mx-auto mb-32">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-10 shadow-lg tracking-[0.2em] uppercase">
-              <Sparkles className="w-4 h-4 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-10 shadow-md tracking-[0.2em] uppercase">
+              <Sparkles className="w-4 h-4" />
               <span>Elite Leadership</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-black mb-10 tracking-tighter leading-tight">
@@ -102,27 +102,27 @@ const About: React.FC = () => {
             {team.map((person, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -15 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ y: -10 }}
                 className="group perspective-1000"
               >
-                <div className="relative glass p-4 rounded-[3rem] shadow-2xl border-none transition-all duration-700 glow-gold-hover preserve-3d premium-shadow">
-                  <div className="relative h-[380px] w-full overflow-hidden rounded-[2.5rem] mb-8 shadow-xl group-hover:scale-[1.02] transition-all">
+                <div className="relative glass p-4 rounded-[3rem] shadow-lg border-none transition-all duration-300 glow-gold-hover premium-shadow">
+                  <div className="relative h-[380px] w-full overflow-hidden rounded-[2.5rem] mb-8 shadow-md group-hover:scale-[1.01] transition-all">
                     <img 
                       src={person.image} 
                       alt={person.name} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 brightness-75 group-hover:brightness-100"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-10">
                       <div className="flex gap-5">
                         {[Linkedin, Twitter, Mail].map((Icon, idx) => (
                           <Link 
                             key={idx} 
                             to="#" 
-                            className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-black hover:scale-110 transition-all shadow-xl"
+                            className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-black hover:scale-110 transition-all shadow-md"
                           >
                             <Icon className="w-5 h-5" />
                           </Link>

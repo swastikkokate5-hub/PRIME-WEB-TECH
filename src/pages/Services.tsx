@@ -18,20 +18,20 @@ const Services: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />
-      <div className="absolute top-1/4 left-1/4 w-full h-full bg-grid opacity-10 pointer-events-none -z-10" />
+      {/* Background Decor - Optimized */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
+      <div className="absolute top-1/4 left-1/4 w-full h-full bg-grid opacity-5 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-1.5 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-8 shadow-lg tracking-[0.2em] uppercase">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-6 py-1.5 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-8 shadow-md tracking-[0.2em] uppercase">
+            <Sparkles className="w-3.5 h-3.5" />
             <span>Our Elite Expertise</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-tight">Our <span className="gold-text-gradient">Premium</span> Services</h1>
@@ -41,10 +41,10 @@ const Services: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Search and Filter */}
+        {/* Search and Filter - Optimized */}
         <div className="max-w-2xl mx-auto mb-20">
           <div className="relative group">
-            <div className="absolute inset-0 gold-gradient blur-2xl opacity-5 group-focus-within:opacity-10 transition-all rounded-full" />
+            <div className="absolute inset-0 gold-gradient blur-xl opacity-3 group-focus-within:opacity-5 transition-all rounded-full" />
             <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
             <Input 
               type="text" 
@@ -65,17 +65,18 @@ const Services: React.FC = () => {
               <motion.div
                 key={service.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <Link to={`/services/${service.id}`}>
-                  <Card className="h-full glass border-none shadow-xl hover:shadow-primary/10 transition-all duration-700 group overflow-hidden rounded-[2.5rem] glow-gold-hover premium-shadow">
+                  <Card className="h-full glass border-none shadow-lg hover:shadow-primary/10 transition-all duration-300 group overflow-hidden rounded-[2.5rem] glow-gold-hover premium-shadow">
                     <CardHeader className="p-10 pb-6">
                       <motion.div 
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="mb-8 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-xl group-hover:shadow-primary/20 transition-all"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                        className="mb-8 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-md group-hover:shadow-primary/15 transition-all"
                       >
                         {React.cloneElement(service.icon as React.ReactElement<any>, { 
                           className: "w-8 h-8 text-black" 
@@ -96,7 +97,7 @@ const Services: React.FC = () => {
                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-1">Starting From</span>
                           <span className="text-2xl font-black text-foreground tracking-tighter">{service.pricing.basic}</span>
                         </div>
-                        <Button asChild size="icon" variant="ghost" className="h-12 w-12 rounded-full flex items-center justify-center text-primary hover:gold-gradient hover:text-black transition-all duration-500 group-hover:rotate-[360deg] shadow-sm">
+                        <Button asChild size="icon" variant="ghost" className="h-12 w-12 rounded-full flex items-center justify-center text-primary hover:gold-gradient hover:text-black transition-all duration-300 shadow-sm">
                           <Link to={`/services/${service.id}`}>
                             <ArrowRight className="w-6 h-6" />
                           </Link>
