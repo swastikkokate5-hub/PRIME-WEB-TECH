@@ -25,8 +25,8 @@ const Pricing: React.FC = () => {
     {
       name: 'Basic',
       description: 'Ideal for small projects and high-growth startups.',
-      price: isAnnual ? '$2,000' : '$2,500',
-      period: isAnnual ? '/yr' : '/mo',
+      price: isAnnual ? '₹39,999' : '₹49,999',
+      period: isAnnual ? '/yr' : '/project',
       features: ['Modern UI/UX Design', 'Next.js Frontend', 'Standard SEO Audit', 'Email Support', '1-Month Maintenance'],
       icon: <Zap />,
       highlighted: false
@@ -34,8 +34,8 @@ const Pricing: React.FC = () => {
     {
       name: 'Professional',
       description: 'The standard for scaled businesses and enterprises.',
-      price: isAnnual ? '$4,500' : '$5,000',
-      period: isAnnual ? '/yr' : '/mo',
+      price: isAnnual ? '₹89,999' : '₹99,999',
+      period: isAnnual ? '/yr' : '/project',
       features: ['Everything in Basic', 'AI Feature Integration', 'Full System Design', '24/7 Priority Support', 'Dedicated Project Lead'],
       icon: <Sparkles />,
       highlighted: true

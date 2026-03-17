@@ -35,7 +35,7 @@ export const services: Service[] = [
     fullDescription: 'We build enterprise-grade websites that combine stunning design with flawless performance. Our tech stack includes React, Next.js, and advanced CMS solutions to ensure scalability and speed.',
     icon: <Layout />,
     features: ['Responsive Design', 'Next.js Performance', 'SEO Optimization', 'Custom CMS'],
-    pricing: { basic: '$2,500', pro: '$5,000', enterprise: 'Custom' },
+    pricing: { basic: '₹49,999', pro: '₹99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_11212309-2713-4445-b50e-5f16033377b7.jpg'
   },
   {
@@ -45,7 +45,7 @@ export const services: Service[] = [
     fullDescription: 'From iOS to Android, we create intuitive mobile experiences that keep users engaged. Our focus is on seamless UX and robust architecture.',
     icon: <Smartphone />,
     features: ['iOS & Android', 'React Native', 'Push Notifications', 'API Integration'],
-    pricing: { basic: '$5,000', pro: '$12,000', enterprise: 'Custom' },
+    pricing: { basic: '₹99,999', pro: '₹1,99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_d6c49c61-98fa-4b1a-b637-687de4a0f273.jpg'
   },
   {
@@ -55,7 +55,7 @@ export const services: Service[] = [
     fullDescription: 'Implement custom AI solutions to automate decision-making and gain predictive insights. We specialize in LLMs and generative AI integration.',
     icon: <Cpu />,
     features: ['Custom LLMs', 'Predictive Analytics', 'Natural Language Processing', 'Data Mining'],
-    pricing: { basic: '$8,000', pro: '$20,000', enterprise: 'Custom' },
+    pricing: { basic: '₹1,49,999', pro: '₹3,99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_9fab3747-ac2a-443b-a33e-4f4f79a7889a.jpg'
   },
   {
@@ -65,7 +65,7 @@ export const services: Service[] = [
     fullDescription: 'Our voice bots handle customer inquiries, scheduling, and sales with natural speech patterns. Reduce operational costs while maintaining quality.',
     icon: <Mic />,
     features: ['Natural Speech Synthesis', '24/7 Availability', 'Multilingual Support', 'CRM Integration'],
-    pricing: { basic: '$3,000', pro: '$7,500', enterprise: 'Custom' },
+    pricing: { basic: '₹59,999', pro: '₹1,29,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_62006e6e-a2f4-42e5-8010-ff3c01388960.jpg'
   },
   {
@@ -75,7 +75,7 @@ export const services: Service[] = [
     fullDescription: 'Automate sales and support directly in WhatsApp. Our bots handle order tracking, FAQ resolution, and personalized marketing.',
     icon: <MessageSquare />,
     features: ['Official API Support', 'Automated Workflows', 'Broadcast Messaging', 'Secure Payments'],
-    pricing: { basic: '$1,500', pro: '$3,500', enterprise: 'Custom' },
+    pricing: { basic: '₹29,999', pro: '₹69,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_4de48607-c5f8-4322-9407-1ffa8c72ecb6.jpg'
   },
   {
@@ -85,7 +85,7 @@ export const services: Service[] = [
     fullDescription: 'We design high-level systems that handle millions of requests. Our architecture focuses on fault tolerance, security, and ultra-low latency.',
     icon: <Settings />,
     features: ['Microservices', 'Load Balancing', 'Database Scaling', 'Cloud Infrastructure'],
-    pricing: { basic: '$4,000', pro: '$10,000', enterprise: 'Custom' },
+    pricing: { basic: '₹79,999', pro: '₹1,99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_35b381af-dabc-4994-91cb-bd6009b18b38.jpg'
   },
   {
@@ -95,7 +95,7 @@ export const services: Service[] = [
     fullDescription: 'Automate repetitive tasks across your entire business ecosystem. We connect your tools and build custom workflows for maximum efficiency.',
     icon: <Zap />,
     features: ['Workflow Automation', 'ERP Integration', 'Process Optimization', 'Reporting'],
-    pricing: { basic: '$2,000', pro: '$5,000', enterprise: 'Custom' },
+    pricing: { basic: '₹39,999', pro: '₹99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_3f933f91-1e5a-4ecd-b342-9859bd696698.jpg'
   },
   {
@@ -105,7 +105,7 @@ export const services: Service[] = [
     fullDescription: 'Managed hosting solutions optimized for high traffic. We handle security, backups, and 99.99% uptime guarantees.',
     icon: <Cloud />,
     features: ['AWS/GCP/Azure', 'Managed Backups', 'DDoS Protection', 'SSL Certificates'],
-    pricing: { basic: '$100/mo', pro: '$250/mo', enterprise: 'Custom' },
+    pricing: { basic: '₹4,999/mo', pro: '₹9,999/mo', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_097a6759-562d-4564-8b19-02767557a778.jpg'
   },
   {
@@ -115,7 +115,7 @@ export const services: Service[] = [
     fullDescription: 'Our data-driven SEO strategies ensure your brand is seen. From technical audits to content marketing, we deliver measurable results.',
     icon: <Search />,
     features: ['Keyword Research', 'Technical SEO', 'Backlink Building', 'Performance Tracking'],
-    pricing: { basic: '$1,200/mo', pro: '$3,000/mo', enterprise: 'Custom' },
+    pricing: { basic: '₹19,999/mo', pro: '₹59,999/mo', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_e86af96f-cd00-4176-a0fa-97c69288dc5a.jpg'
   },
   {
@@ -125,7 +125,7 @@ export const services: Service[] = [
     fullDescription: 'When off-the-shelf software isn\'t enough, we build custom solutions that fit your specific needs and scale with your business.',
     icon: <Code2 />,
     features: ['Legacy Migration', 'Custom CRM/ERP', 'Desktop Apps', 'API Development'],
-    pricing: { basic: '$10,000', pro: '$25,000', enterprise: 'Custom' },
+    pricing: { basic: '₹1,99,999', pro: '₹4,99,999', enterprise: 'Custom' },
     image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_6b46fee9-1736-4718-b993-8fa77b7416be.jpg'
   }
 ];

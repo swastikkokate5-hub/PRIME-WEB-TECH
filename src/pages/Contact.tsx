@@ -59,20 +59,42 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log(values);
-    setIsSubmitting(false);
-    toast.success('Premium request received!', {
-      description: "Our elite team will contact you within 12 hours.",
-    });
-    form.reset();
+    
+    try {
+      // Sanitize inputs to prevent XSS
+      const sanitizedValues = {
+        name: values.name.trim().replace(/<[^>]*>/g, ''),
+        email: values.email.trim().toLowerCase(),
+        phone: values.phone.trim().replace(/[^\d+\-() ]/g, ''),
+        service: values.service,
+        message: values.message.trim().replace(/<[^>]*>/g, '')
+      };
+      
+      // Simulate API call - Replace with actual API endpoint
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Log sanitized values (in production, send to backend)
+      console.log('Sanitized form data:', sanitizedValues);
+      
+      toast.success('Request Received Successfully!', {
+        description: "Our team will contact you within 24 hours.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      toast.error('Submission Failed', {
+        description: "Please try again or contact us directly.",
+      });
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     { icon: <Mail />, label: 'Email Us', value: 'hello@primewebtech.com', color: 'primary' },
-    { icon: <Phone />, label: 'Call Us', value: '+1 (555) 000-TECH', color: 'accent' },
-    { icon: <MapPin />, label: 'Visit Us', value: '123 Tech Avenue, CA 94025', color: 'primary' }
+    { icon: <Phone />, label: 'Call Us', value: '+91 98765 43210', color: 'accent' },
+    { icon: <MapPin />, label: 'Visit Us', value: 'Mumbai, Maharashtra, India', color: 'primary' }
   ];
 
   return (

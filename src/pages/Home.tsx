@@ -20,6 +20,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
+import AnimatedParticles from '@/components/AnimatedParticles';
+import FloatingCircles from '@/components/FloatingCircles';
 
 const Home: React.FC = () => {
   const containerVariants = {
@@ -51,69 +53,43 @@ const Home: React.FC = () => {
   const coreServices = services.slice(0, 4);
 
   return (
-    <div className="overflow-x-hidden bg-background">
+    <div className="overflow-x-hidden bg-background no-overflow">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-24 overflow-hidden">
+        {/* Animated Background Effects */}
+        <FloatingCircles />
+        <AnimatedParticles />
+        
         {/* Animated Background Circles & Glows */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           {/* Main Soft Gradient Light */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] opacity-40 animate-pulse-slow" />
-          
-          {/* Floating Premium Circles */}
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ 
-                x: Math.random() * 100 + "%", 
-                y: Math.random() * 100 + "%",
-                scale: Math.random() * 0.5 + 0.5,
-                opacity: 0
-              }}
-              animate={{ 
-                y: [null, i % 2 === 0 ? "-10%" : "10%", "0%"],
-                x: [null, i % 3 === 0 ? "5%" : "-5%", "0%"],
-                opacity: [0, 0.3, 0],
-                scale: [null, 1.1, 0.9]
-              }}
-              transition={{ 
-                duration: 15 + Math.random() * 10, 
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: Math.random() * 10
-              }}
-              className={`absolute rounded-full blur-[80px] ${
-                i % 3 === 0 ? 'bg-primary/20 w-80 h-80' : 
-                i % 3 === 1 ? 'bg-white/10 dark:bg-white/5 w-64 h-64 border border-primary/5' : 
-                'bg-accent/10 w-96 h-96'
-              }`}
-            />
-          ))}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-primary/10 rounded-full blur-[120px] opacity-40 animate-pulse-glow" />
           
           <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+        <div className="container-responsive relative z-10">
+          <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-8 shadow-xl tracking-[0.2em] uppercase"
+              className="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full glass border border-primary/20 text-primary text-xs font-bold mb-6 md:mb-8 shadow-xl tracking-wider uppercase"
             >
               <Zap className="w-3.5 h-3.5 animate-pulse" />
-              <span>Future-Ready Technology Solutions</span>
+              <span className="text-[10px] md:text-xs">Future-Ready Technology Solutions</span>
             </motion.div>
             
-            <div className="relative mb-8">
-              <div className="absolute -inset-10 blur-[100px] bg-primary/10 -z-10 rounded-full scale-150 animate-pulse-slow" />
+            <div className="relative mb-6 md:mb-8">
+              <div className="absolute -inset-10 blur-[100px] bg-primary/10 -z-10 rounded-full scale-150 animate-pulse-glow" />
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                className="text-4xl md:text-7xl font-black tracking-tight leading-[1.1] text-foreground"
+                className="text-foreground px-4"
               >
-                Prime Web Tech — <br />
-                <span className="gold-text-gradient text-glow-gold">Building Future</span> With AI & Modern Tech
+                Build Your Digital Future <br className="hidden md:block" />
+                With <span className="gradient-text">AI & Modern Technology</span>
               </motion.h1>
             </div>
             
@@ -121,7 +97,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="text-base md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
+              className="text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-4"
             >
               We create high-end websites, apps, AI systems, and automation tools 
               tailored for modern businesses ready to dominate the digital landscape.
@@ -131,16 +107,16 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4 w-full sm:w-auto"
             >
-              <Button asChild size="lg" className="gold-gradient text-black px-12 rounded-full text-base h-14 font-black group shadow-2xl hover:shadow-primary/30 border-none transition-all hover:scale-105 active:scale-95">
-                <Link to="/contact">
+              <Button asChild size="lg" className="gold-gradient text-black px-8 md:px-12 rounded-full h-12 md:h-14 font-black group shadow-2xl hover:shadow-primary/30 border-none transition-all hover:scale-105 active:scale-95 w-full sm:w-auto">
+                <Link to="/contact" className="flex items-center justify-center">
                   Get Started Now
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1.5 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-12 text-base h-14 border-2 font-black hover:bg-muted/50 backdrop-blur-md group transition-all hover:scale-105 active:scale-95">
-                <Link to="/services" className="flex items-center">
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 md:px-12 h-12 md:h-14 border-2 font-black hover:bg-muted/50 backdrop-blur-md group transition-all hover:scale-105 active:scale-95 w-full sm:w-auto">
+                <Link to="/services" className="flex items-center justify-center">
                   Explore Services
                 </Link>
               </Button>
@@ -151,10 +127,10 @@ const Home: React.FC = () => {
 
       {/* Services Preview Section */}
       <section className="section-padding relative">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter leading-tight">Premium Digital Solutions</h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-medium">
+        <div className="container-responsive">
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <h2 className="font-black mb-4 md:mb-6 tracking-tighter leading-tight px-4">Premium Digital Solutions</h2>
+            <p className="text-muted-foreground leading-relaxed font-medium px-4">
               Experience excellence with our suite of high-end services designed to 
               scale your business through modern technology and strategic innovation.
             </p>
@@ -165,7 +141,7 @@ const Home: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
           >
             {coreServices.map((service, index) => (
               <motion.div key={index} variants={itemVariants}>

@@ -6,7 +6,7 @@
 Prime Web Tech
 
 ### 1.2 Application Description
-A premium, luxury-level business website for Prime Web Tech, a high-end digital technology service company. The website showcases comprehensive tech solutions including website development, mobile app development, AI services, automation tools, and more. Features a sophisticated gold and black theme with glassmorphism effects, smooth animations, and modern SaaS-inspired design.
+A premium, production-ready business website for Prime Web Tech, a high-end digital technology service company. The website showcases comprehensive tech solutions including website development, mobile app development, AI services, automation tools, and more. Features a sophisticated gold and black theme with glassmorphism effects, smooth creative animations, and modern SaaS-inspired design. Fully optimized for security, SEO, responsiveness, and performance.
 
 ### 1.3 Application Type
 Web - Business Website
@@ -23,7 +23,13 @@ Web - Business Website
 - Hero section with main heading: Prime Web Tech — Building Future With AI & Modern Technology
 - Subtext: We create websites, apps, AI systems, and automation tools for modern businesses.
 - Call-to-action buttons: Get Started, View Services, Contact Us
-- Animated background with premium glow effect
+- Creative animated background with:
+  - Moving gold and white circles
+  - Soft light rays
+  - Blur glow behind text
+  - Floating particles
+  - Gradient background motion
+  - Smooth text animation
 - Service cards preview section
 - Why choose us section
 - Company stats section
@@ -45,15 +51,15 @@ Each service card includes:
 - Icon
 - Title
 - Short description
-- Hover animation with gold border effect
-- Action button
+- Hover animation with gold border effect and card lift
+- Action button with glow animation
 
 ### 2.3 Service Detail Page
 Dynamic template for individual service pages containing:
 - Detailed service description
 - Key features list
 - Work process/workflow
-- Pricing section
+- Pricing section (in Indian Rupees)
 - Contact button
 
 ### 2.4 About Page
@@ -68,21 +74,27 @@ Company information including:
 - Future goals
 
 ### 2.5 Contact Page
-Contact form with fields:
-- Name
-- Email
-- Phone
+Secure contact form with fields:
+- Name (validated and sanitized)
+- Email (validated and sanitized)
+- Phone (validated and sanitized)
 - Service needed (dropdown/selection)
-- Message (textarea)
+- Message (textarea, validated and sanitized)
+
+Form features:
+- Input validation
+- Sanitized inputs
+- Error handling
+- Secure submission
 
 Floating WhatsApp button for instant messaging
 
 ### 2.6 Pricing Page
-Pricing tiers with premium UI cards:
-- Basic plan
-- Pro plan
-- Enterprise plan
-- Custom plan
+Pricing tiers with premium UI cards in Indian Rupees:
+- Basic plan: ₹4999
+- Pro plan: ₹9999
+- Enterprise plan: ₹19999
+- Custom plan: ₹49999
 
 ### 2.7 Navigation Bar
 - Logo positioned on the left
@@ -93,6 +105,15 @@ Pricing tiers with premium UI cards:
   - About
   - Contact
 - Sticky navbar with blur background
+- Correct spacing and font size
+- Mobile menu functionality
+
+### 2.8 Project Showcase Section
+- Responsive cards
+- Video preview
+- Image display
+- Proper spacing
+- Smooth hover effects
 
 ## 3. Design Requirements
 
@@ -101,7 +122,8 @@ Pricing tiers with premium UI cards:
 - Professional startup aesthetic inspired by Stripe, Apple, OpenAI, Tesla
 - Clean and minimalist layout
 - Glassmorphism effects with gradient and blur
-- Fully responsive design for mobile and desktop devices
+- Fully responsive design for mobile, tablet, laptop, and large screen devices
+- No UI bugs, no overflow, no broken layout
 
 ### 3.2 Color Scheme
 - Primary color: Black #0a0a0a
@@ -111,47 +133,163 @@ Pricing tiers with premium UI cards:
 - Glass blur + gradient effects
 
 ### 3.3 Interactive Effects
-- Scroll animation
+- Smooth scroll animation
+- Fade-in sections
+- Floating light circles (gold and white)
+- Glowing particles
+- Soft gradient movement
+- Background motion
+- Parallax effect
+- Glass blur animation
 - Hover glow effects
+- Card lift animation
+- Button glow animation
+- Text reveal animation
+- Gradient light sweep effect
 - Gradient borders
-- Glass UI
 - Smooth transitions
 - Loading animation
-- Parallax effect
-- Card animations on scroll/hover
 - Shadow effects for depth
 
+Animation requirements:
+- Smooth and premium
+- Creative and professional
+- Not heavy or laggy
+- Optimized performance
+
 ### 3.4 Typography & UI Elements
-- Professional modern fonts
+- Professional modern fonts with balanced font scale:
+  - Hero: large but balanced
+  - Heading: medium
+  - Text: normal
+  - Button: medium
+  - Navbar: small
 - Rounded modern UI components
 - Soft shadows
 - Consistent spacing and padding
+- No oversized text
 
-## 4. Additional Features
+### 3.5 Responsive Design
+- Mobile:
+  - No overflow
+  - No text outside screen
+  - No broken layout
+  - Wrapped text
+  - Reduced font size where needed
+  - Fixed padding
+  - Fixed card width
+  - Fixed navbar
+  - Fixed hero text
+- Tablet:
+  - Correct grid layout
+- Desktop:
+  - Balanced spacing
+- Support for all screen sizes
 
-### 4.1 Floating Elements
+### 3.6 Dark Theme
+- Dark background
+- White text
+- Visible buttons
+- Visible cards
+- Visible borders
+- Visible icons
+- Theme switching functionality
+
+## 4. Production Ready Requirements
+
+### 4.1 Code Quality
+- Clean code structure
+- Reusable components
+- Proper file organization
+- No console errors
+
+### 4.2 Performance Optimization
+- Fast loading
+- Optimized images (lazy loading)
+- Optimized animations
+- Reduced heavy effects
+- Efficient rendering
+
+### 4.3 Security Features
+- HTTPS ready
+- Form validation
+- Sanitized inputs
+- Safe API calls
+- No exposed keys
+- Error handling
+- Secure contact form
+
+### 4.4 SEO Optimization
+- Meta title: Prime Web Tech – Website, App, AI, Automation & WhatsApp Bot Services
+- Meta description
+- Keywords
+- OpenGraph tags
+- Alt text for all images
+- Semantic HTML structure
+- Correct H1, H2 heading order
+- Fast loading speed
+- Mobile friendly
+
+## 5. Additional Features
+
+### 5.1 Floating Elements
 - Floating WhatsApp button (fixed position)
 - Floating contact button (fixed position)
 
-### 4.2 Theme Support
+### 5.2 Theme Support
 - Dark / Gold theme toggle
-- Theme switch functionality
+- Theme switch functionality with perfect visibility
 
-### 4.3 User Experience
+### 5.3 User Experience
 - Smooth scrolling between sections
 - Smooth page transitions
 - Page loading animation
 - Responsive navigation for mobile devices
 - Optimized performance for fast loading
 
-### 4.4 Footer
+### 5.4 Footer
 - Professional footer design
 - Social media icons
 - Company information
 
-## 5. Technical Notes
-- All animations should be smooth and performant
-- Website should maintain premium appearance across all devices
-- Design should reflect a real premium tech startup company, not a generic template
-- UI/UX should follow modern SaaS design trends with luxury aesthetic
-- High-end UI quality comparable to leading tech companies
+## 6. Technical Requirements
+
+### 6.1 Structure
+- Semantic HTML
+- Proper component architecture
+- Reusable code patterns
+
+### 6.2 Quality Standards
+- No UI bugs
+- No overflow issues
+- No console errors
+- Cross-browser compatibility
+- Accessibility standards
+
+### 6.3 Deployment Ready
+- Production-ready code
+- Optimized assets
+- Secure implementation
+- SEO-optimized structure
+- Fully responsive across all devices
+
+## 7. Design Goals
+
+The website must achieve:
+- Premium startup appearance
+- Creative tech company aesthetic
+- High-end SaaS site quality
+- Modern agency site design
+- Production ready status
+- Fully responsive layout
+- Secure implementation
+- SEO optimized structure
+- Smooth animated interactions
+- Very attractive visual design
+- Professional presentation
+- Unique design identity
+- Bug-free experience
+- No overflow issues
+- Perfect spacing
+- Perfect font sizing
+- Ready for deployment
