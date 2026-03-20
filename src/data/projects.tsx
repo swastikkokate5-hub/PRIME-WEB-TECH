@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: 'MokshasCreation Store',
     description: 'Modern e-commerce platform offering handmade products, jewelry, and lifestyle items with a smooth mobile-first shopping experience.',
     category: 'websites',
-    image: '../public/images/projectPageImage/web/mokshacreation.png',
+    image: '/images/projectPageImage/web/mokshacreation.png',
     techStack: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP'],
     liveUrl: 'https://mokshascreation.store',
     icon: <Globe className="w-5 h-5" />
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     title: 'Healthcare Portal',
     description: 'HIPAA-compliant patient management system with telemedicine, appointment scheduling, and medical records.',
     category: 'websites',
-    image: '../public/images/projectPageImage/web/muti-hms.png',
+    image: '/images/projectPageImage/web/muti-hms.png',
     techStack: ['Next.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
     liveUrl: 'https://example.com',
     icon: <Globe className="w-5 h-5" />
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: 'Hacklido Cybersecurity Platform',
     description: 'A cybersecurity blogging and community platform for infosec enthusiasts to read, write, and share knowledge. It offers blogging, learning resources, community interaction, and monetization through writer rewards.',
     category: 'websites',
-    image: '../public/images/projectPageImage/web/hacklido.png',
+    image: '/images/projectPageImage/web/hacklido.png',
     techStack: [
       'React.js (Frontend - inferred)',
       'Node.js (Backend - inferred)',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     title: 'Techonquer Cybersecurity Platform',
     description: 'A cybersecurity training and consulting platform offering ethical hacking courses, VAPT services, mock interviews, and certification programs. It focuses on practical, hands-on learning and real-world security skills for students and professionals.',
     category: 'websites',
-    image: '../public/images/projectPageImage/web/techonquer.png',
+    image: '/images/projectPageImage/web/techonquer.png',
     techStack: [
       'React.js / Next.js (Frontend - inferred)',
       'Node.js / Backend APIs (inferred)',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     title: 'FitTrack Pro',
     description: 'AI-powered fitness tracking app with personalized workout plans, nutrition tracking, and progress analytics.',
     category: 'apps',
-    image: '../public/images/projectPageImage/app/medassist.jpeg',
+    image: '/images/projectPageImage/app/medassist.jpeg',
     techStack: ['React Native', 'Firebase', 'TensorFlow', 'Node.js'],
     icon: <Smartphone className="w-5 h-5" />
   },

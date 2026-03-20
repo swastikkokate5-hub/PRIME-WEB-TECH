@@ -4,15 +4,12 @@ import {
   Rocket,
   Target,
   Users,
-  Zap,
-  Search,
-  Shield,
   Sparkles,
   Linkedin,
   Twitter,
   Mail
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+// import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -21,19 +18,19 @@ const About: React.FC = () => {
     {
       name: 'Vaibhav Wani',
       role: 'Founder',
-      image: './public/images/about_page_image/vaibhav.jpeg',
+      image: '/images/about_page_image/vaibhav.jpeg',
       desc: 'Visionary technologist with a passion for building scalable digital systems and innovative AI solutions.'
     },
     {
       name: 'Rahul Kumar',
       role: 'Co-Founder',
-      image: './public/images/about_page_image/rahul.jpeg',
+      image: '/images/about_page_image/rahul.jpeg',
       desc: 'Expert in strategic planning and technical architecture, driving the company\'s global expansion.'
     },
     {
       name: 'Swastik Kokate',
       role: 'CEO & CMO',
-      image: './public/images/about_page_image/swastik.jpeg',
+      image: '/images/about_page_image/swastik.jpeg',
       desc: 'Creative lead and operational head, ensuring Prime Web Tech remains at the forefront of digital excellence.'
     }
   ];
