@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Rocket, 
-  Target, 
-  Users, 
-  Zap, 
-  Search, 
-  Shield, 
-  Sparkles, 
-  Linkedin, 
-  Twitter, 
-  Mail 
+import {
+  Rocket,
+  Target,
+  Users,
+  Zap,
+  Search,
+  Shield,
+  Sparkles,
+  Linkedin,
+  Twitter,
+  Mail
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,27 +21,27 @@ const About: React.FC = () => {
     {
       name: 'Vaibhav Wani',
       role: 'Founder',
-      image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_90bbacea-36e8-45f2-86f4-4ad2064fe53c.jpg',
+      image: './public/images/about_page_image/vaibhav.jpeg',
       desc: 'Visionary technologist with a passion for building scalable digital systems and innovative AI solutions.'
     },
     {
       name: 'Rahul Kumar',
       role: 'Co-Founder',
-      image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_14a95643-6262-4645-a195-a457fab1ab0a.jpg',
+      image: './public/images/about_page_image/rahul.jpeg',
       desc: 'Expert in strategic planning and technical architecture, driving the company\'s global expansion.'
     },
     {
       name: 'Swastik Kokate',
       role: 'CEO & CMO',
-      image: 'https://miaoda-site-img.s3cdn.medo.dev/images/KLing_a8fbce5a-bdf3-4352-a8d5-063e1d486e88.jpg',
+      image: './public/images/about_page_image/swastik.jpeg',
       desc: 'Creative lead and operational head, ensuring Prime Web Tech remains at the forefront of digital excellence.'
     }
   ];
 
   const stats = [
-    { label: 'Founded', value: '2020' },
-    { label: 'Clients', value: '500+' },
-    { label: 'Experts', value: '50+' },
+    { label: 'Founded', value: '2024' },
+    { label: 'Clients', value: '15+' },
+    { label: 'Experts', value: '10+' },
     { label: 'Uptime', value: '99.9%' }
   ];
 
@@ -67,7 +67,7 @@ const About: React.FC = () => {
               We Build The <span className="gold-text-gradient">Future</span> Of Technology
             </h1>
             <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-              Founded with a mission to empower businesses through innovative digital solutions, 
+              Founded with a mission to empower businesses through innovative digital solutions,
               we've grown into a leading technology partner for global enterprises.
             </p>
           </motion.div>
@@ -111,17 +111,17 @@ const About: React.FC = () => {
               >
                 <div className="relative glass p-4 rounded-[3rem] shadow-lg border-none transition-all duration-300 glow-gold-hover premium-shadow">
                   <div className="relative h-[380px] w-full overflow-hidden rounded-[2.5rem] mb-8 shadow-md group-hover:scale-[1.01] transition-all">
-                    <img 
-                      src={person.image} 
-                      alt={person.name} 
+                    <img
+                      src={person.image}
+                      alt={person.name}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 brightness-75 group-hover:brightness-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-10">
                       <div className="flex gap-5">
                         {[Linkedin, Twitter, Mail].map((Icon, idx) => (
-                          <Link 
-                            key={idx} 
-                            to="#" 
+                          <Link
+                            key={idx}
+                            to="#"
                             className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-black hover:scale-110 transition-all shadow-md"
                           >
                             <Icon className="w-5 h-5" />
@@ -154,7 +154,7 @@ const About: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase">Our Mission</h2>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed font-medium">
-              To bridge the gap between imagination and reality by building the world's most 
+              To bridge the gap between imagination and reality by building the world's most
               sophisticated digital systems, empowering brands to redefine what's possible in the AI era.
             </p>
           </motion.div>
@@ -169,7 +169,7 @@ const About: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase">Our Vision</h2>
             <p className="text-base md:text-xl opacity-80 leading-relaxed font-black">
-              To become the global gold standard for digital technology services, known for 
+              To become the global gold standard for digital technology services, known for
               unparalleled luxury in code, elite craftsmanship in AI, and timeless results.
             </p>
           </motion.div>
@@ -201,7 +201,7 @@ const About: React.FC = () => {
               <div className="lg:w-1/2 flex flex-col justify-center space-y-8">
                 <h2 className="text-2xl md:text-4xl font-bold tracking-tighter leading-tight">What We're Building Towards</h2>
                 <div className="space-y-8">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ x: 10 }}
                     className="flex items-start gap-6 group"
                   >
@@ -213,7 +213,7 @@ const About: React.FC = () => {
                       <p className="text-muted-foreground text-xs leading-relaxed font-medium">Expanding our footprint with new Innovation Centers in 5 countries over the next 2 years.</p>
                     </div>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     whileHover={{ x: 10 }}
                     className="flex items-start gap-6 group"
                   >

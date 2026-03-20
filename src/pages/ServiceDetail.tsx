@@ -16,7 +16,8 @@ import { services } from '@/data/services';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import PortfolioSection from '@/components/PortfolioSection';
-import { ProjectCategory } from '@/data/projects';
+import ImageSlider from '@/components/ImageSlider';
+import { ProjectCategory, projects } from '@/data/projects';
 
 const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -65,14 +66,19 @@ const ServiceDetail: React.FC = () => {
     return categoryMap[serviceId];
   };
 
-  const serviceCategory = getCategoryForService(service.id);
+    const serviceCategory = getCategoryForService(service.id);
 
-  return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />
-      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none -z-10" />
+    // Get images for the slider from the project portfolio
+    const sliderImages = serviceCategory 
+      ? projects.filter(p => p.category === serviceCategory).map(p => p.image)
+      : [];
+
+    return (
+      <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+        {/* Background Decor */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
+        <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />
+        <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -91,26 +97,26 @@ const ServiceDetail: React.FC = () => {
           </Button>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-24 mb-32">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-32">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/2"
+            className="w-full lg:w-1/2 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-10 shadow-lg tracking-[0.2em] uppercase">
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-10 shadow-lg tracking-[0.2em] uppercase mx-auto lg:mx-0">
               <Sparkles className="w-4 h-4 animate-pulse" />
               <span>Premium Solution</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-black mb-10 tracking-tighter leading-tight text-foreground uppercase tracking-tighter">{service.title}</h1>
-            <p className="text-base md:text-xl text-muted-foreground mb-16 leading-relaxed font-medium max-w-xl">
+            <p className="text-base md:text-xl text-muted-foreground mb-16 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0">
               {service.fullDescription}
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <Button asChild size="lg" className="rounded-full px-12 h-16 gold-gradient text-black text-xl font-black shadow-2xl hover:scale-105 transition-all border-none uppercase tracking-widest active:scale-95">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+              <Button asChild size="lg" className="rounded-full px-12 h-16 gold-gradient text-black text-xl font-black shadow-2xl hover:scale-105 transition-all border-none uppercase tracking-widest active:scale-95 w-full sm:w-auto">
                 <Link to="/contact">Start Project</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-12 h-16 border-2 text-xl font-black hover:scale-105 transition-all uppercase tracking-widest active:scale-95">
+              <Button asChild size="lg" variant="outline" className="rounded-full px-12 h-16 border-2 text-xl font-black hover:scale-105 transition-all uppercase tracking-widest active:scale-95 w-full sm:w-auto">
                 <Link to="/pricing">View Pricing</Link>
               </Button>
             </div>
@@ -120,16 +126,20 @@ const ServiceDetail: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="lg:w-1/2 relative perspective-1000"
+            className="w-full lg:w-1/2 relative perspective-1000"
           >
             <div className="absolute inset-0 gold-gradient blur-[100px] opacity-15 -z-10" />
-            <div className="relative glass p-6 rounded-[3.5rem] shadow-2xl border-none premium-shadow">
-              <img 
-                src={service.image} 
-                alt={service.title} 
-                className="w-full h-auto rounded-[2.5rem] object-cover shadow-2xl brightness-90 group-hover:brightness-100 transition-all duration-700" 
-              />
-            </div>
+            {sliderImages.length > 0 ? (
+              <ImageSlider images={sliderImages} />
+            ) : (
+              <div className="relative glass p-6 rounded-[3.5rem] shadow-2xl border-none premium-shadow">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-auto rounded-[2.5rem] object-cover shadow-2xl brightness-90 group-hover:brightness-100 transition-all duration-700" 
+                />
+              </div>
+            )}
           </motion.div>
         </div>
 

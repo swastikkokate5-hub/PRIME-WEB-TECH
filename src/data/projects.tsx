@@ -19,22 +19,22 @@ export const projects: Project[] = [
   // Website Projects
   {
     id: 'web-1',
-    title: 'TechCorp Business Platform',
-    description: 'Enterprise-grade business management platform with real-time analytics, CRM integration, and automated workflows.',
+    title: 'MokshasCreation Store',
+    description: 'Modern e-commerce platform offering handmade products, jewelry, and lifestyle items with a smooth mobile-first shopping experience.',
     category: 'websites',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-    techStack: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS'],
-    liveUrl: 'https://example.com',
+    image: '../public/images/projectPageImage/web/mokshacreation.png',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP'],
+    liveUrl: 'https://mokshascreation.store',
     icon: <Globe className="w-5 h-5" />
   },
   {
     id: 'web-2',
-    title: 'E-Commerce Marketplace',
-    description: 'Modern online shopping platform with AI-powered recommendations, secure payments, and inventory management.',
+    title: 'Portfolio',
+    description: 'Personal portfolio showcasing web development, AI/ML projects, and innovative tech solutions with a modern responsive design.',
     category: 'websites',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-    techStack: ['React', 'TypeScript', 'Firebase', 'Stripe', 'Tailwind CSS'],
-    liveUrl: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
+    techStack: ['React', 'TypeScript', 'Stripe', 'Tailwind CSS'],
+    liveUrl: 'https://portfoliowebsite-git-main-vaibhav-wani-s-projects.vercel.app/',
     icon: <Globe className="w-5 h-5" />
   },
   {
@@ -42,9 +42,44 @@ export const projects: Project[] = [
     title: 'Healthcare Portal',
     description: 'HIPAA-compliant patient management system with telemedicine, appointment scheduling, and medical records.',
     category: 'websites',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
+    image: '../public/images/projectPageImage/web/muti-hms.png',
     techStack: ['Next.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
     liveUrl: 'https://example.com',
+    icon: <Globe className="w-5 h-5" />
+  },
+  {
+    id: 'web-4',
+    title: 'Hacklido Cybersecurity Platform',
+    description: 'A cybersecurity blogging and community platform for infosec enthusiasts to read, write, and share knowledge. It offers blogging, learning resources, community interaction, and monetization through writer rewards.',
+    category: 'websites',
+    image: '../public/images/projectPageImage/web/hacklido.png',
+    techStack: [
+      'React.js (Frontend - inferred)',
+      'Node.js (Backend - inferred)',
+      'MongoDB / Database (inferred)',
+      'Markdown Editor',
+      'REST APIs',
+      'Cloud Hosting'
+    ],
+    liveUrl: 'https://hacklido.com',
+    icon: <Globe className="w-5 h-5" />
+  },
+  {
+    id: 'web-5',
+    title: 'Techonquer Cybersecurity Platform',
+    description: 'A cybersecurity training and consulting platform offering ethical hacking courses, VAPT services, mock interviews, and certification programs. It focuses on practical, hands-on learning and real-world security skills for students and professionals.',
+    category: 'websites',
+    image: '../public/images/projectPageImage/web/techonquer.png',
+    techStack: [
+      'React.js / Next.js (Frontend - inferred)',
+      'Node.js / Backend APIs (inferred)',
+      'Database (MongoDB / PostgreSQL - inferred)',
+      'REST APIs',
+      'Cloud Hosting',
+      'Payment Integration',
+      'Authentication System'
+    ],
+    liveUrl: 'https://techonquer.org',
     icon: <Globe className="w-5 h-5" />
   },
 
@@ -54,7 +89,7 @@ export const projects: Project[] = [
     title: 'FitTrack Pro',
     description: 'AI-powered fitness tracking app with personalized workout plans, nutrition tracking, and progress analytics.',
     category: 'apps',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=800&fit=crop',
+    image: '../public/images/projectPageImage/app/medassist.jpeg',
     techStack: ['React Native', 'Firebase', 'TensorFlow', 'Node.js'],
     icon: <Smartphone className="w-5 h-5" />
   },

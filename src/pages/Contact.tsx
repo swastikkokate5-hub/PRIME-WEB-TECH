@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  CheckCircle2, 
-  Rocket, 
-  Sparkles, 
-  Globe, 
-  MessageSquare, 
-  Zap 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Rocket,
+  Sparkles,
+  Globe,
+  MessageSquare,
+  Zap
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
+
     try {
       // Sanitize inputs to prevent XSS
       const sanitizedValues = {
@@ -69,17 +69,17 @@ const Contact: React.FC = () => {
         service: values.service,
         message: values.message.trim().replace(/<[^>]*>/g, '')
       };
-      
+
       // Simulate API call - Replace with actual API endpoint
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       // Log sanitized values (in production, send to backend)
       console.log('Sanitized form data:', sanitizedValues);
-      
+
       toast.success('Request Received Successfully!', {
         description: "Our team will contact you within 24 hours.",
       });
-      
+
       form.reset();
     } catch (error) {
       toast.error('Submission Failed', {
@@ -92,9 +92,9 @@ const Contact: React.FC = () => {
   };
 
   const contactInfo = [
-    { icon: <Mail />, label: 'Email Us', value: 'hello@primewebtech.com', color: 'primary' },
-    { icon: <Phone />, label: 'Call Us', value: '+91 98765 43210', color: 'accent' },
-    { icon: <MapPin />, label: 'Visit Us', value: 'Mumbai, Maharashtra, India', color: 'primary' }
+    { icon: <Mail />, label: 'Email Us', value: 'Primewebtech1@gmail.com', color: 'primary' },
+    { icon: <Phone />, label: 'Call Us', value: '+91 72768 15079', color: 'accent' },
+    { icon: <MapPin />, label: 'Visit Us', value: 'Narhe, Pune, Maharashtra 411041', color: 'primary' }
   ];
 
   return (
@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-foreground">Let's <span className="gold-text-gradient">Connect</span></h1>
           <p className="text-muted-foreground text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
-            Ready to start your next project? We're here to help you navigate your digital 
+            Ready to start your next project? We're here to help you navigate your digital
             journey and build the technology your business deserves.
           </p>
         </motion.div>
@@ -131,14 +131,14 @@ const Contact: React.FC = () => {
           >
             <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter uppercase">Get In Touch</h2>
             <p className="text-base text-muted-foreground mb-10 max-w-md leading-relaxed font-medium">
-              Whether you have a specific project in mind or just want to explore possibilities, 
+              Whether you have a specific project in mind or just want to explore possibilities,
               our team is ready to provide expert guidance and elite execution.
             </p>
-            
+
             <div className="flex flex-col gap-8">
               {contactInfo.map((info, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
             <div className="absolute top-0 right-0 p-16 opacity-5 pointer-events-none">
               <Zap className="w-64 h-64 text-primary animate-float" />
             </div>
-            
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                       <FormItem>
                         <FormLabel className="text-[11px] font-black uppercase tracking-[0.2em] mb-3 block text-foreground/50">Phone Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="+1 (555) 000-0000" className="h-14 rounded-2xl glass border border-border/50 focus:border-primary transition-all text-base font-bold focus:ring-0 px-6" {...field} />
+                          <Input placeholder="72768 15079" className="h-14 rounded-2xl glass border border-border/50 focus:border-primary transition-all text-base font-bold focus:ring-0 px-6" {...field} />
                         </FormControl>
                         <FormMessage className="text-destructive text-[10px] font-bold mt-1" />
                       </FormItem>
@@ -243,10 +243,10 @@ const Contact: React.FC = () => {
                     <FormItem>
                       <FormLabel className="text-[11px] font-black uppercase tracking-[0.2em] mb-3 block text-foreground/50">Your Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Tell us about your project vision..." 
-                          className="min-h-[220px] rounded-2xl glass border border-border/50 focus:border-primary transition-all text-base font-bold focus:ring-0 p-8 leading-relaxed" 
-                          {...field} 
+                        <Textarea
+                          placeholder="Tell us about your project vision..."
+                          className="min-h-[220px] rounded-2xl glass border border-border/50 focus:border-primary transition-all text-base font-bold focus:ring-0 p-8 leading-relaxed"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage className="text-destructive text-[10px] font-bold mt-1" />

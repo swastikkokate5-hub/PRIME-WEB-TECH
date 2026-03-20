@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  CheckCircle2, 
-  Rocket, 
-  Sparkles, 
-  Zap, 
-  Shield, 
-  Globe, 
-  BarChart3, 
-  Target, 
-  Smartphone, 
-  Cpu 
+import { motion } from 'framer-motion';
+import {
+  CheckCircle2,
+  Rocket,
+  Sparkles,
+  Zap,
+  Shield,
+  Globe,
+  Target
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -24,29 +21,38 @@ const Pricing: React.FC = () => {
   const tiers = [
     {
       name: 'Basic',
-      description: 'Ideal for small projects and high-growth startups.',
-      price: isAnnual ? '₹39,999' : '₹49,999',
+      description: 'Ideal for portfolios, small blogs, or landing pages.',
+      price: isAnnual ? '₹8,999' : '₹9,999',
       period: isAnnual ? '/yr' : '/project',
-      features: ['Modern UI/UX Design', 'Next.js Frontend', 'Standard SEO Audit', 'Email Support', '1-Month Maintenance'],
+      features: ['Modern UI/UX Design', 'Fully Responsive', 'Basic SEO Setup', 'Email Support', '3-Month Support'],
       icon: <Zap />,
       highlighted: false
     },
     {
-      name: 'Professional',
-      description: 'The standard for scaled businesses and enterprises.',
-      price: isAnnual ? '₹89,999' : '₹99,999',
+      name: 'Standard',
+      description: 'Perfect for small businesses, gyms, and restaurants.',
+      price: isAnnual ? '₹13,999' : '₹15,999',
       period: isAnnual ? '/yr' : '/project',
-      features: ['Everything in Basic', 'AI Feature Integration', 'Full System Design', '24/7 Priority Support', 'Dedicated Project Lead'],
+      features: ['Everything in Basic', 'Contact Form Integration', 'Standard SEO Audit', 'WhatsApp Integration', '6-Month Maintenance'],
       icon: <Sparkles />,
       highlighted: true
     },
     {
-      name: 'Enterprise',
-      description: 'Custom solutions for global-scale organizations.',
-      price: 'Custom',
-      period: '',
-      features: ['Bespoke AI Training', 'Global Cloud Architecture', 'White-Glove Support', 'Dedicated Dev Team', 'Compliance & Security'],
-      icon: <Shield />,
+      name: 'Professional',
+      description: 'The standard for startups, dashboards, and booking systems.',
+      price: isAnnual ? '₹21,999' : '₹24,999',
+      period: isAnnual ? '/yr' : '/project',
+      features: ['Everything in Standard', 'Custom Dashboard', 'Payment Gateway', 'AI Feature Intro', '12-Month Maintenance'],
+      icon: <Target />,
+      highlighted: false
+    },
+    {
+      name: 'Advanced',
+      description: 'Advanced custom systems, E-commerce, and SaaS.',
+      price: isAnnual ? '₹29,999' : '₹34,999',
+      period: isAnnual ? '/yr' : '/project',
+      features: ['Full E-commerce Suite', 'Advanced AI Integration', 'Multi-role Systems', 'Priority Support', 'Lifetime Support'],
+      icon: <Rocket />,
       highlighted: false
     }
   ];
@@ -78,16 +84,16 @@ const Pricing: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-foreground">Choose Your <span className="gold-text-gradient">Success Plan</span></h1>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-16 font-medium">
-            No hidden fees. No long-term commitments. Just the world-class technology 
+            No hidden fees. No long-term commitments. Just the world-class technology
             you need to take your business to the absolute next level.
           </p>
 
           <div className="flex items-center justify-center gap-6 mb-16">
             <Label className={`text-lg font-bold transition-colors ${!isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>Monthly</Label>
             <div className="relative">
-              <Switch 
-                checked={isAnnual} 
-                onCheckedChange={setIsAnnual} 
+              <Switch
+                checked={isAnnual}
+                onCheckedChange={setIsAnnual}
                 className="data-[state=checked]:bg-primary scale-150 shadow-xl"
               />
             </div>
@@ -97,7 +103,7 @@ const Pricing: React.FC = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-[1400px] mx-auto mb-32">
           {tiers.map((tier, index) => (
             <motion.div
               key={index}
@@ -113,11 +119,11 @@ const Pricing: React.FC = () => {
                     Most Popular
                   </div>
                 )}
-                
+
                 <CardHeader className="p-12 pb-8">
                   <div className="mb-10 p-5 rounded-2xl bg-primary/10 w-fit group-hover:bg-primary transition-all duration-500 shadow-xl group-hover:shadow-primary/30">
-                    {React.cloneElement(tier.icon as React.ReactElement<any>, { 
-                      className: `w-10 h-10 text-primary group-hover:text-black transition-colors` 
+                    {React.cloneElement(tier.icon as React.ReactElement<any>, {
+                      className: `w-10 h-10 text-primary group-hover:text-black transition-colors`
                     })}
                   </div>
                   <CardTitle className="text-3xl font-black mb-3 uppercase tracking-tighter group-hover:text-primary transition-colors text-foreground">{tier.name}</CardTitle>
@@ -125,15 +131,15 @@ const Pricing: React.FC = () => {
                     {tier.description}
                   </CardDescription>
                 </CardHeader>
-                
+
                 <CardContent className="p-12 pt-0 flex-grow">
                   <div className="mb-10 border-b border-border/50 pb-10">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-6xl font-black tracking-tighter text-foreground">{tier.price}</span>
-                      <span className="text-muted-foreground text-base font-black uppercase tracking-widest">{tier.period}</span>
+                      <span className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground">{tier.price}</span>
+                      <span className="text-muted-foreground text-sm font-black uppercase tracking-widest">{tier.period}</span>
                     </div>
                   </div>
-                  
+
                   <ul className="space-y-6 mb-12">
                     {tier.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-4 text-sm font-bold leading-tight text-foreground/80 group/item">
@@ -142,7 +148,7 @@ const Pricing: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <Button asChild className={`w-full rounded-2xl h-16 text-lg font-black transition-all duration-500 shadow-xl border-none ${tier.highlighted ? 'gold-gradient text-black hover:scale-105 active:scale-95' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
                     <Link to="/contact">Get Started Now</Link>
                   </Button>

@@ -30,7 +30,7 @@ const FloatingButtons: React.FC = () => {
               size="icon"
               className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl animate-float"
               style={{ animationDelay: '1s' }}
-              onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+              onClick={() => window.open('https://wa.me/917276815079', '_blank')}
             >
               <MessageCircle className="w-6 h-6" />
             </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -30,22 +30,22 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="flex flex-col gap-8">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
-                <Rocket className="w-5 h-5 text-black" />
+              <div className="w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <img src="/main logo prime web.svg" alt="PRIME WEB TECH Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-black tracking-tighter group-hover:text-primary transition-colors duration-500">
                 PRIME WEB TECH
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed font-medium max-w-xs">
-              Empowering modern businesses with elite digital solutions, 
+              Empowering modern businesses with elite digital solutions,
               from high-end platforms to sophisticated AI systems.
             </p>
             <div className="flex items-center gap-4">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <Link 
-                  key={i} 
-                  to="#" 
+                <Link
+                  key={i}
+                  to="#"
                   className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:gold-gradient hover:text-black hover:scale-110 transition-all duration-300 shadow-sm"
                 >
                   <Icon className="w-4 h-4" />
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</span>
-                  <span className="text-foreground text-sm font-bold">hello@primewebtech.com</span>
+                  <span className="text-foreground text-sm font-bold">Primewebtech1@gmail.com</span>
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Phone</span>
-                  <span className="text-foreground text-sm font-bold">+1 (555) 000-TECH</span>
+                  <span className="text-foreground text-sm font-bold">+91 72768 15079</span>
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Office</span>
-                  <span className="text-foreground text-sm font-bold">Silicon Valley, CA 94025</span>
+                  <span className="text-foreground text-sm font-bold">Narhe, Pune, Maharashtra 411041</span>
                 </div>
               </li>
             </ul>

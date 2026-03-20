@@ -1,20 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  Zap, 
-  Globe, 
-  Shield, 
-  BarChart3, 
-  Users, 
-  Rocket, 
-  Cpu, 
-  MessageSquare, 
-  Bot, 
-  PhoneCall, 
-  Layout, 
-  Settings 
+import {
+  ArrowRight,
+  CheckCircle2,
+  Zap,
+  Globe,
+  Shield,
+  BarChart3,
+  Users,
+  Rocket,
+  Cpu,
+  MessageSquare,
+  Bot,
+  PhoneCall,
+  Layout,
+  Settings
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -44,10 +44,10 @@ const Home: React.FC = () => {
   };
 
   const stats = [
-    { label: 'Global Clients', value: '150+', icon: <Globe className="w-6 h-6" /> },
-    { label: 'Projects Completed', value: '500+', icon: <Zap className="w-6 h-6" /> },
+    { label: 'Global Clients', value: '15+', icon: <Globe className="w-6 h-6" /> },
+    { label: 'Projects Completed', value: '12+', icon: <Zap className="w-6 h-6" /> },
     { label: 'Success Rate', value: '99%', icon: <Rocket className="w-6 h-6" /> },
-    { label: 'Team Experts', value: '50+', icon: <Users className="w-6 h-6" /> },
+    { label: 'Team Experts', value: '10+', icon: <Users className="w-6 h-6" /> },
   ];
 
   const coreServices = services.slice(0, 4);
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-background no-overflow">
       {/* Hero Section - Optimized */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-24 overflow-hidden">
+      <section className="relative min-h-[100dvh] md:min-h-[85vh] lg:min-h-[80vh] xl:min-h-[75vh] flex items-center justify-center pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* Animated Background Effects - Conditional for performance */}
         {typeof window !== 'undefined' && window.innerWidth >= 768 && (
           <>
@@ -63,12 +63,12 @@ const Home: React.FC = () => {
             <AnimatedParticles />
           </>
         )}
-        
+
         {/* Simplified Background Glow */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           {/* Main Soft Gradient Light - Reduced blur */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary/8 rounded-full blur-[60px] opacity-40 animate-pulse-glow" />
-          
+
           <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
         </div>
 
@@ -83,29 +83,29 @@ const Home: React.FC = () => {
               <Zap className="w-3.5 h-3.5" />
               <span className="text-[10px] md:text-xs">Future-Ready Technology Solutions</span>
             </motion.div>
-            
+
             <div className="relative mb-6 md:mb-8">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="text-foreground px-4"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black leading-[1.1] tracking-tighter text-foreground px-4"
               >
                 Build Your Digital Future <br className="hidden md:block" />
                 With <span className="gradient-text">AI & Modern Technology</span>
               </motion.h1>
             </div>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-4"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-4"
             >
-              We create high-end websites, apps, AI systems, and automation tools 
+              We create high-end websites, apps, AI systems, and automation tools
               tailored for modern businesses ready to dominate the digital landscape.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,12 +134,12 @@ const Home: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
             <h2 className="font-black mb-4 md:mb-6 tracking-tighter leading-tight px-4">Premium Digital Solutions</h2>
             <p className="text-muted-foreground leading-relaxed font-medium px-4">
-              Experience excellence with our suite of high-end services designed to 
+              Experience excellence with our suite of high-end services designed to
               scale your business through modern technology and strategic innovation.
             </p>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -151,12 +151,12 @@ const Home: React.FC = () => {
                 <Link to={`/services/${service.id}`}>
                   <Card className="h-full glass shadow-xl hover:shadow-primary/10 transition-all duration-700 group overflow-hidden rounded-[2.5rem] border-none glow-gold-hover premium-shadow">
                     <CardContent className="p-10">
-                      <motion.div 
+                      <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         className="mb-10 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-xl group-hover:shadow-primary/20 transition-all"
                       >
-                        {React.cloneElement(service.icon as React.ReactElement<any>, { 
-                          className: "w-8 h-8 text-black" 
+                        {React.cloneElement(service.icon as React.ReactElement<any>, {
+                          className: "w-8 h-8 text-black"
                         })}
                       </motion.div>
                       <h3 className="text-2xl font-black mb-4 group-hover:text-primary transition-colors tracking-tight uppercase">{service.title}</h3>
@@ -172,7 +172,7 @@ const Home: React.FC = () => {
               </motion.div>
             ))}
           </motion.div>
-          
+
           <div className="text-center mt-16">
             <Button asChild size="lg" variant="outline" className="rounded-full px-10 h-14 text-sm font-black border-2 group transition-all hover:gold-gradient hover:text-black hover:border-transparent uppercase tracking-widest">
               <Link to="/services">View All Services</Link>
@@ -185,7 +185,7 @@ const Home: React.FC = () => {
       <section className="section-padding bg-secondary/10 relative overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -200,8 +200,8 @@ const Home: React.FC = () => {
                   'Enterprise-Grade Security Protocol',
                   'Bespoke Premium Design Language'
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
@@ -218,7 +218,7 @@ const Home: React.FC = () => {
                 <Link to="/contact">Partner With Us</Link>
               </Button>
             </motion.div>
-            
+
             <div className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { icon: <Shield className="w-10 h-10" />, title: 'Unmatched Security', desc: 'Enterprise-grade protocols to protect your digital assets and user data.' },
@@ -226,8 +226,8 @@ const Home: React.FC = () => {
                 { icon: <Globe className="w-10 h-10" />, title: 'Global Reach', desc: 'Architecture designed for millions of users worldwide across all platforms.' },
                 { icon: <Zap className="w-10 h-10" />, title: 'Fast Execution', desc: 'From vision to reality in record time without compromising quality.' }
               ].map((item, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.8 }}
@@ -250,8 +250,8 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
             {stats.map((stat, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -277,7 +277,7 @@ const Home: React.FC = () => {
       <section className="py-32 relative overflow-hidden bg-black text-white">
         <div className="absolute inset-0 bg-grid opacity-5" />
         <div className="absolute top-0 left-0 w-full h-full bg-primary/5 blur-[120px]" />
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
