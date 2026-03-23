@@ -14,6 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Link } from 'react-router-dom';
+import PageMeta from '@/components/common/PageMeta';
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -66,6 +67,10 @@ const Pricing: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+      <PageMeta 
+        title="Pricing & Packages | Affordable IT Services in Pune" 
+        description="Choose the perfect plan for your business. Transparent pricing for web design, AI chatbot development, and IT automation services at PrimeWenTech Pune."
+      />
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />

@@ -18,6 +18,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import PortfolioSection from '@/components/PortfolioSection';
 import ImageSlider from '@/components/ImageSlider';
 import { ProjectCategory, projects } from '@/data/projects';
+import PageMeta from '@/components/common/PageMeta';
 
 const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -75,6 +76,10 @@ const ServiceDetail: React.FC = () => {
 
     return (
       <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+        <PageMeta 
+          title={service.metaTitle || `${service.title} | PrimeWenTech`} 
+          description={service.metaDescription || service.shortDescription}
+        />
         {/* Background Decor */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
         <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />

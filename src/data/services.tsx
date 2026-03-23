@@ -25,6 +25,8 @@ export interface Service {
     enterprise: string;
   };
   image: string;
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export const services: Service[] = [
@@ -36,7 +38,9 @@ export const services: Service[] = [
     icon: <Layout />,
     features: ['Responsive Design', 'Next.js Performance', 'SEO Optimization', 'Custom CMS'],
     pricing: { basic: '₹9,999', pro: '₹15,999', enterprise: '₹24,999+' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'Affordable WordPress Website Design for Small Business in Pune',
+    metaDescription: 'Get responsive, high-performance web design. We specialize in WordPress and Shopify development to help Pune startups and SMEs succeed online.'
   },
   {
     id: 'app-dev',
@@ -46,7 +50,9 @@ export const services: Service[] = [
     icon: <Smartphone />,
     features: ['iOS & Android', 'React Native', 'Push Notifications', 'API Integration'],
     pricing: { basic: '₹29,999', pro: '₹49,999', enterprise: 'Custom' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'Premium Mobile App Development in Pune | PrimeWenTech',
+    metaDescription: 'Custom iOS and Android apps for Baner and Hinjewadi businesses. We build scalable, high-performance mobile solutions using React Native.'
   },
   {
     id: 'ai-services',
@@ -56,7 +62,9 @@ export const services: Service[] = [
     icon: <Cpu />,
     features: ['Custom LLMs', 'Predictive Analytics', 'Natural Language Processing', 'Data Mining'],
     pricing: { basic: '₹34,999', pro: '₹74,999', enterprise: 'Custom' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'AI Automation Services & Chatbot Development in Pune',
+    metaDescription: 'Future-proof your operations with AI integration. We offer custom AI agents and machine learning solutions for businesses in Baner and Magarpatta.'
   },
   {
     id: 'ai-voice-bot',
@@ -76,7 +84,9 @@ export const services: Service[] = [
     icon: <MessageSquare />,
     features: ['Official API Support', 'Automated Workflows', 'Broadcast Messaging', 'Secure Payments'],
     pricing: { basic: '₹5,999', pro: '₹14,999', enterprise: 'Custom' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'AI WhatsApp Bot Development Pune | PrimeWenTech',
+    metaDescription: 'Automate your sales and support with custom WhatsApp bots. Specialized solutions for Magarpatta and Pune SMEs to improve customer engagement.'
   },
   {
     id: 'system-design',
@@ -86,7 +96,9 @@ export const services: Service[] = [
     icon: <Settings />,
     features: ['Microservices', 'Load Balancing', 'Database Scaling', 'Cloud Infrastructure'],
     pricing: { basic: '₹24,999', pro: '₹44,999', enterprise: 'Custom' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'Scalable System Design & Architecture in Pune | PrimeWenTech',
+    metaDescription: 'Enterprise-grade system architecture and cloud infrastructure for high-traffic apps in Pune tech corridors of Hinjewadi and Baner.'
   },
   {
     id: 'automation',
@@ -126,6 +138,44 @@ export const services: Service[] = [
     icon: <Code2 />,
     features: ['Legacy Migration', 'Custom CRM/ERP', 'Desktop Apps', 'API Development'],
     pricing: { basic: '₹34,999', pro: '₹74,999', enterprise: 'Custom' },
-    image: '/main logo prime web.svg'
+    image: '/main logo prime web.svg',
+    metaTitle: 'Custom CRM Developers & Software Engineering in Pune',
+    metaDescription: 'Build scalable solutions. From custom CRM development to legacy modernization, our Pune-based engineers deliver robust results using modern tech stacks.'
+  },
+  {
+    id: 'it-consulting',
+    title: 'IT Consulting',
+    shortDescription: 'Strategic technology guidance for digital transformation.',
+    fullDescription: 'Align your technology with your business goals through our expert consulting services. We provide strategic roadmaps and cloud migration expertise.',
+    icon: <Zap />,
+    features: ['Digital Transformation', 'Cloud Strategy', 'IT Roadmap', 'Infrastructure Audit'],
+    pricing: { basic: '₹14,999', pro: '₹29,999', enterprise: 'Custom' },
+    image: '/main logo prime web.svg',
+    metaTitle: 'IT Strategy & Digital Transformation Consulting in Pune',
+    metaDescription: 'Navigate the 2026 digital landscape. We help Pune businesses align technology with goals through strategic roadmaps and cloud migration services.'
+  },
+  {
+    id: 'hinjewadi-it-services',
+    title: 'Hinjewadi Tech Solutions',
+    shortDescription: 'Specialized IT services for the Hinjewadi tech corridor.',
+    fullDescription: 'Localized IT outsourcing and agile software engineering for SMEs in Hinjewadi. We provide the expertise needed for global-scale digital projects.',
+    icon: <Code2 />,
+    features: ['IT Outsourcing', 'Agile Engineering', 'Local Expertise', 'Scalable Teams'],
+    pricing: { basic: '₹24,999', pro: '₹44,999', enterprise: 'Custom' },
+    image: '/main logo prime web.svg',
+    metaTitle: 'Custom Software Development for SMEs in Hinjewadi | PrimeWenTech',
+    metaDescription: 'Serving the Hinjewadi tech corridor with specialized IT outsourcing and agile software engineering. Local expertise for global-scale digital projects.'
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-commerce Solutions',
+    shortDescription: 'Secure, lightning-fast online stores optimized for retail.',
+    fullDescription: 'Specialized Shopify and custom cart solutions designed for high conversion and security. We build stores optimized for the modern retail landscape.',
+    icon: <Layout />,
+    features: ['Shopify Experts', 'Custom Cart', 'Payment Integration', 'Inventory Sync'],
+    pricing: { basic: '₹19,999', pro: '₹34,999', enterprise: 'Custom' },
+    image: '/main logo prime web.svg',
+    metaTitle: 'E-commerce Website Development Agency in Baner, Pune',
+    metaDescription: 'Specialized Shopify and custom cart solutions. We build secure, lightning-fast online stores optimized for Pune’s flourishing retail landscape.'
   }
 ];

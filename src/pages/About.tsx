@@ -12,6 +12,7 @@ import {
 // import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import PageMeta from '@/components/common/PageMeta';
 
 const About: React.FC = () => {
   const team = [
@@ -44,6 +45,10 @@ const About: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+      <PageMeta 
+        title="About PrimeWenTech | Premium IT Solutions in Pune" 
+        description="Learn about PrimeWenTech, Pune's leading agency for web development, AI automation, and strategic IT consulting. We build the tech that powers your business."
+      />
       {/* Background Decor - Optimized */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />

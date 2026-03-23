@@ -6,7 +6,6 @@ import {
   MapPin,
   Send,
   CheckCircle2,
-  Rocket,
   Sparkles,
   Globe,
   MessageSquare,
@@ -34,6 +33,7 @@ import {
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import PageMeta from '@/components/common/PageMeta';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -99,6 +99,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+      <PageMeta 
+        title="Contact PrimeWenTech | Start Your Tech Journey in Pune" 
+        description="Ready to scale your business? Contact PrimeWenTech today for a free consultation on web development, AI automation, and IT strategy in Pune."
+      />
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />

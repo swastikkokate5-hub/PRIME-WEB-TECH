@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
 import AnimatedParticles from '@/components/AnimatedParticles';
 import FloatingCircles from '@/components/FloatingCircles';
+import PageMeta from '@/components/common/PageMeta';
 
 const Home: React.FC = () => {
   const containerVariants = {
@@ -54,6 +55,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-background no-overflow">
+      <PageMeta 
+        title="PrimeWenTech | Top IT Services & Web Development Agency in Pune" 
+        description="PrimeWenTech provides affordable web design and custom software development in Pune. Transform your business with digital solutions tailored for growth."
+      />
       {/* Hero Section - Optimized */}
       <section className="relative min-h-[100dvh] md:min-h-[85vh] lg:min-h-[80vh] xl:min-h-[75vh] flex items-center justify-center pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* Animated Background Effects - Conditional for performance */}
