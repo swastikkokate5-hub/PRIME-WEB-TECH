@@ -141,6 +141,11 @@
     background: linear-gradient(135deg, #d4af37 0%, #f9e29c 50%, #b8962e 100%);
   }
 
+  .hover-gold:hover {
+    background: linear-gradient(135deg, #d4af37 0%, #f9e29c 50%, #b8962e 100%) !important;
+    color: #000 !important;
+  }
+
   .gold-text-gradient {
     background: linear-gradient(135deg, #d4af37, #f9e29c, #b8962e);
     -webkit-background-clip: text;

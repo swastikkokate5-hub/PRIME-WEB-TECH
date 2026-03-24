@@ -43,11 +43,22 @@ const About: React.FC = () => {
     { label: 'Uptime', value: '99.9%' }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://primewebtech.online/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://primewebtech.online/about" }
+    ]
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
       <PageMeta 
-        title="About PrimeWenTech | Premium IT Solutions in Pune" 
-        description="Learn about PrimeWenTech, Pune's leading agency for web development, AI automation, and strategic IT consulting. We build the tech that powers your business."
+        title="About Prime Web Tech | Pune's Leading IT & AI Digital Agency" 
+        description="Discover the mission and visionary team behind Prime Web Tech. We are Pune's premier technology partner for custom software, AI automation, and global digital excellence."
+        url="/about"
+        schema={breadcrumbSchema}
       />
       {/* Background Decor - Optimized */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />

@@ -3,18 +3,14 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   ArrowLeft, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles, 
+  Sparkles,
   Layers, 
   Rocket, 
-  Cpu, 
   Zap, 
   Target 
 } from 'lucide-react';
 import { services } from '@/data/services';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import PortfolioSection from '@/components/PortfolioSection';
 import ImageSlider from '@/components/ImageSlider';
 import { ProjectCategory, projects } from '@/data/projects';
@@ -122,7 +118,7 @@ const ServiceDetail: React.FC = () => {
                 <Link to="/contact">Start Project</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full px-12 h-16 border-2 text-xl font-black hover:scale-105 transition-all uppercase tracking-widest active:scale-95 w-full sm:w-auto">
-                <Link to="/pricing">View Pricing</Link>
+                <Link to="/pricing">View Plans</Link>
               </Button>
             </div>
           </motion.div>
@@ -191,14 +187,14 @@ const ServiceDetail: React.FC = () => {
         {/* Pricing Tiers Preview */}
         <section className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter text-foreground text-glow-gold">Tiered Pricing</h2>
-            <p className="text-muted-foreground text-base leading-relaxed font-medium">Choose a plan that fits your current needs.</p>
+            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter text-foreground text-glow-gold">Custom Solutions</h2>
+            <p className="text-muted-foreground text-base leading-relaxed font-medium">Bespoke pricing tailored to your unique requirements.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { name: 'Basic', price: service.pricing.basic, color: 'primary/10' },
-              { name: 'Professional', price: service.pricing.pro, color: 'primary/20', featured: true },
-              { name: 'Enterprise', price: service.pricing.enterprise, color: 'primary/30' }
+              { name: 'Basic', price: 'Custom Quote', color: 'primary/10' },
+              { name: 'Professional', price: 'Custom Quote', color: 'primary/20', featured: true },
+              { name: 'Enterprise', price: 'Custom Quote', color: 'primary/30' }
             ].map((tier, i) => (
               <motion.div
                 key={i}
@@ -219,8 +215,8 @@ const ServiceDetail: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className={`w-full h-12 rounded-xl text-sm font-bold border-none transition-all ${tier.featured ? 'gold-gradient text-black shadow-lg hover:scale-105' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
-                  <Link to="/contact">Select Plan</Link>
+                <Button asChild className={`w-full h-12 rounded-xl text-sm font-bold border-none transition-all bg-muted text-foreground hover-gold ${tier.featured ? 'scale-105 shadow-lg shadow-primary/20' : ''}`}>
+                  <Link to="/contact">Get Quote</Link>
                 </Button>
               </motion.div>
             ))}

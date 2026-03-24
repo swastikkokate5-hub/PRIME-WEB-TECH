@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   CheckCircle2,
@@ -11,50 +11,42 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
 import { Link } from 'react-router-dom';
 import PageMeta from '@/components/common/PageMeta';
 
 const Pricing: React.FC = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
-
   const tiers = [
     {
-      name: 'Basic',
-      description: 'Ideal for portfolios, small blogs, or landing pages.',
-      price: isAnnual ? '₹8,999' : '₹9,999',
-      period: isAnnual ? '/yr' : '/project',
-      features: ['Modern UI/UX Design', 'Fully Responsive', 'Basic SEO Setup', 'Email Support', '3-Month Support'],
+      name: 'Custom Web Development',
+      description: 'Bespoke websites tailored to your unique brand identity and business goals.',
+      features: ['Modern UI/UX Design', 'Fully Responsive', 'Advanced SEO Setup', 'Email Support', 'Priority Maintenance'],
       icon: <Zap />,
-      highlighted: false
+      highlighted: false,
+      cta: 'Get Quote'
     },
     {
-      name: 'Standard',
-      description: 'Perfect for small businesses, gyms, and restaurants.',
-      price: isAnnual ? '₹13,999' : '₹15,999',
-      period: isAnnual ? '/yr' : '/project',
-      features: ['Everything in Basic', 'Contact Form Integration', 'Standard SEO Audit', 'WhatsApp Integration', '6-Month Maintenance'],
+      name: 'Mobile App Solutions',
+      description: 'High-performance iOS and Android applications built for your specific needs.',
+      features: ['Native & Cross-Platform', 'Intuitive Interfaces', 'Push Notifications', 'API Integration', 'App Store Optimization'],
       icon: <Sparkles />,
-      highlighted: true
+      highlighted: true,
+      cta: 'Get Quote'
     },
     {
-      name: 'Professional',
-      description: 'The standard for startups, dashboards, and booking systems.',
-      price: isAnnual ? '₹21,999' : '₹24,999',
-      period: isAnnual ? '/yr' : '/project',
-      features: ['Everything in Standard', 'Custom Dashboard', 'Payment Gateway', 'AI Feature Intro', '12-Month Maintenance'],
+      name: 'AI & Automation',
+      description: 'Custom AI agents and sophisticated automation bots to scale your operations.',
+      features: ['WhatsApp & Telegram Bots', 'AI Voice Agents', 'Process Automation', 'Custom AI Models', 'Full Support'],
       icon: <Target />,
-      highlighted: false
+      highlighted: false,
+      cta: 'Get Quote'
     },
     {
-      name: 'Advanced',
-      description: 'Advanced custom systems, E-commerce, and SaaS.',
-      price: isAnnual ? '₹29,999' : '₹34,999',
-      period: isAnnual ? '/yr' : '/project',
-      features: ['Full E-commerce Suite', 'Advanced AI Integration', 'Multi-role Systems', 'Priority Support', 'Lifetime Support'],
+      name: 'Enterprise Software',
+      description: 'Complex custom systems and SaaS platforms designed for global scale.',
+      features: ['Full E-commerce Suite', 'Multi-role Systems', 'Advanced Analytics', 'Cloud Architecture', 'Lifetime Support'],
       icon: <Rocket />,
-      highlighted: false
+      highlighted: false,
+      cta: 'Get Quote'
     }
   ];
 
@@ -65,11 +57,22 @@ const Pricing: React.FC = () => {
     { icon: <Target className="w-8 h-8" />, label: 'Guaranteed ROI' }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://primewebtech.online/" },
+      { "@type": "ListItem", "position": 2, "name": "Plans", "item": "https://primewebtech.online/pricing" }
+    ]
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
       <PageMeta 
-        title="Pricing & Packages | Affordable IT Services in Pune" 
-        description="Choose the perfect plan for your business. Transparent pricing for web design, AI chatbot development, and IT automation services at PrimeWenTech Pune."
+        title="Plans | Prime Web Tech" 
+        description="Get custom pricing for web development, mobile apps, AI and software services in Pune India."
+        url="/pricing"
+        schema={breadcrumbSchema}
       />
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
@@ -87,25 +90,12 @@ const Pricing: React.FC = () => {
             <Zap className="w-3.5 h-3.5 animate-pulse" />
             <span>Transparent Excellence</span>
           </div>
-          <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-foreground">Choose Your <span className="gold-text-gradient">Success Plan</span></h1>
+          <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-foreground">Flexible <span className="gold-text-gradient">Plans</span> for Every Project</h1>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-16 font-medium">
-            No hidden fees. No long-term commitments. Just the world-class technology
-            you need to take your business to the absolute next level.
+            We provide custom web development, mobile app, AI, and software solutions.
+            Each project is different, so pricing is provided after discussion.
+            Contact us to get a custom quote for your project.
           </p>
-
-          <div className="flex items-center justify-center gap-6 mb-16">
-            <Label className={`text-lg font-bold transition-colors ${!isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>Monthly</Label>
-            <div className="relative">
-              <Switch
-                checked={isAnnual}
-                onCheckedChange={setIsAnnual}
-                className="data-[state=checked]:bg-primary scale-150 shadow-xl"
-              />
-            </div>
-            <Label className={`text-lg font-bold transition-colors ${isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>
-              Annual <span className="text-[10px] gold-gradient px-3 py-1 rounded-full text-black font-black ml-2 shadow-md">Save 20%</span>
-            </Label>
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-[1400px] mx-auto mb-32">
@@ -139,9 +129,11 @@ const Pricing: React.FC = () => {
 
                 <CardContent className="p-12 pt-0 flex-grow">
                   <div className="mb-10 border-b border-border/50 pb-10">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground">{tier.price}</span>
-                      <span className="text-muted-foreground text-sm font-black uppercase tracking-widest">{tier.period}</span>
+                    <div className="flex flex-col gap-2">
+                       <span className="text-2xl font-black tracking-tighter text-foreground">Custom Plans</span>
+                       <p className="text-muted-foreground text-xs font-bold leading-relaxed">
+                         Built according to your business needs, features, and project size.
+                       </p>
                     </div>
                   </div>
 
@@ -154,8 +146,8 @@ const Pricing: React.FC = () => {
                     ))}
                   </ul>
 
-                  <Button asChild className={`w-full rounded-2xl h-16 text-lg font-black transition-all duration-500 shadow-xl border-none ${tier.highlighted ? 'gold-gradient text-black hover:scale-105 active:scale-95' : 'bg-muted text-foreground hover:bg-muted/80'}`}>
-                    <Link to="/contact">Get Started Now</Link>
+                  <Button asChild className="w-full rounded-2xl h-16 text-lg font-black transition-all duration-500 shadow-xl border-none bg-muted text-foreground hover-gold hover:scale-105 active:scale-95">
+                    <Link to="/contact">{tier.cta}</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -202,6 +194,15 @@ const Pricing: React.FC = () => {
               <Link to="/contact">Request Custom Quote</Link>
             </Button>
           </motion.div>
+        </section>
+
+        {/* SEO Text Footer Section */}
+        <section className="mt-12 mb-20 text-center max-w-4xl mx-auto px-6">
+          <p className="text-muted-foreground text-xs leading-relaxed font-medium">
+            Prime Web Tech provides web development, mobile app development, software development, 
+            AI development and automation services in Pune, India and worldwide.<br /><br />
+            Plans depend on project requirements. Contact us for custom quote.
+          </p>
         </section>
       </div>
     </div>

@@ -14,10 +14,11 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
+    { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Our Blog', path: '/blog' },
     { name: 'About Us', path: '/about' },
     { name: 'Pricing Plans', path: '/pricing' },
     { name: 'Contact Sales', path: '/contact' },
-    { name: 'Careers', path: '/about' },
   ];
 
   return (

@@ -5,6 +5,9 @@ import ServiceDetail from '@/pages/ServiceDetail';
 import About from '@/pages/About';
 import Pricing from '@/pages/Pricing';
 import Contact from '@/pages/Contact';
+import Portfolio from '@/pages/Portfolio';
+import Blog from '@/pages/Blog';
+import BlogPost from '@/pages/BlogPost';
 
 export const routes: RouteConfig[] = [
   {
@@ -30,5 +33,17 @@ export const routes: RouteConfig[] = [
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/portfolio',
+    element: <Portfolio />,
+  },
+  {
+    path: '/blog',
+    element: <Blog />,
+  },
+  {
+    path: '/blog/:slug',
+    element: <BlogPost />,
   },
 ];

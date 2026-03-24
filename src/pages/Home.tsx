@@ -53,11 +53,50 @@ const Home: React.FC = () => {
 
   const coreServices = services.slice(0, 4);
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Prime Web Tech",
+    "image": "https://primewebtech.online/main logo prime web.svg",
+    "@id": "https://primewebtech.online",
+    "url": "https://primewebtech.online",
+    "telephone": "+91 72768 15079",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Narhe",
+      "addressLocality": "Pune",
+      "postalCode": "411041",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 18.4416,
+      "longitude": 73.8322
+    },
+    "description": "Prime Web Tech is a premier web development company in Pune providing software development, mobile apps, AI development, UI UX design and custom IT solutions for India and global clients.",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  };
+
   return (
     <div className="overflow-x-hidden bg-background no-overflow">
       <PageMeta 
-        title="PrimeWenTech | Top IT Services & Web Development Agency in Pune" 
-        description="PrimeWenTech provides affordable web design and custom software development in Pune. Transform your business with digital solutions tailored for growth."
+        title="Prime Web Tech | Top Web Development & AI Software Company in Pune, India" 
+        description="Prime Web Tech is a leading web development and software company in Pune. We specialize in custom software, mobile apps, AI agents, and UI UX design for global clients."
+        url="/"
+        schema={homeSchema}
       />
       {/* Hero Section - Optimized */}
       <section className="relative min-h-[100dvh] md:min-h-[85vh] lg:min-h-[80vh] xl:min-h-[75vh] flex items-center justify-center pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
@@ -303,6 +342,20 @@ const Home: React.FC = () => {
               </Button>
             </div>
           </motion.div>
+        </div>
+      </section>
+      {/* SEO Content Section */}
+      <section className="py-20 border-t border-border/30 bg-secondary/5">
+        <div className="container mx-auto px-6 text-center">
+            <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl font-black mb-6 tracking-tight uppercase">Top Web Development Company in Pune</h2>
+                <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
+                    Prime Web Tech is a web development company in Pune providing software development, mobile apps, AI development, UI UX design and custom IT solutions for India and global clients.
+                </p>
+                <p className="text-muted-foreground leading-relaxed font-medium">
+                    We build modern websites, automation systems, AI agents, ecommerce platforms and business software. Our team of expert developers and designers ensures that your business stays ahead in the digital landscape with cutting-edge technology and innovative solutions.
+                </p>
+            </div>
         </div>
       </section>
     </div>

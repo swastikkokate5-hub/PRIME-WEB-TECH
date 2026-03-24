@@ -37,7 +37,7 @@ export const services: Service[] = [
     fullDescription: 'We build enterprise-grade websites that combine stunning design with flawless performance. Our tech stack includes React, Next.js, and advanced CMS solutions to ensure scalability and speed.',
     icon: <Layout />,
     features: ['Responsive Design', 'Next.js Performance', 'SEO Optimization', 'Custom CMS'],
-    pricing: { basic: '₹9,999', pro: '₹15,999', enterprise: '₹24,999+' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'Affordable WordPress Website Design for Small Business in Pune',
     metaDescription: 'Get responsive, high-performance web design. We specialize in WordPress and Shopify development to help Pune startups and SMEs succeed online.'
@@ -49,7 +49,7 @@ export const services: Service[] = [
     fullDescription: 'From iOS to Android, we create intuitive mobile experiences that keep users engaged. Our focus is on seamless UX and robust architecture.',
     icon: <Smartphone />,
     features: ['iOS & Android', 'React Native', 'Push Notifications', 'API Integration'],
-    pricing: { basic: '₹29,999', pro: '₹49,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'Premium Mobile App Development in Pune | PrimeWenTech',
     metaDescription: 'Custom iOS and Android apps for Baner and Hinjewadi businesses. We build scalable, high-performance mobile solutions using React Native.'
@@ -61,7 +61,7 @@ export const services: Service[] = [
     fullDescription: 'Implement custom AI solutions to automate decision-making and gain predictive insights. We specialize in LLMs and generative AI integration.',
     icon: <Cpu />,
     features: ['Custom LLMs', 'Predictive Analytics', 'Natural Language Processing', 'Data Mining'],
-    pricing: { basic: '₹34,999', pro: '₹74,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'AI Automation Services & Chatbot Development in Pune',
     metaDescription: 'Future-proof your operations with AI integration. We offer custom AI agents and machine learning solutions for businesses in Baner and Magarpatta.'
@@ -73,7 +73,7 @@ export const services: Service[] = [
     fullDescription: 'Our voice bots handle customer inquiries, scheduling, and sales with natural speech patterns. Reduce operational costs while maintaining quality.',
     icon: <Mic />,
     features: ['Natural Speech Synthesis', '24/7 Availability', 'Multilingual Support', 'CRM Integration'],
-    pricing: { basic: '₹14,999', pro: '₹29,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg'
   },
   {
@@ -83,7 +83,7 @@ export const services: Service[] = [
     fullDescription: 'Automate sales and support directly in WhatsApp. Our bots handle order tracking, FAQ resolution, and personalized marketing.',
     icon: <MessageSquare />,
     features: ['Official API Support', 'Automated Workflows', 'Broadcast Messaging', 'Secure Payments'],
-    pricing: { basic: '₹5,999', pro: '₹14,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'AI WhatsApp Bot Development Pune | PrimeWenTech',
     metaDescription: 'Automate your sales and support with custom WhatsApp bots. Specialized solutions for Magarpatta and Pune SMEs to improve customer engagement.'
@@ -95,7 +95,7 @@ export const services: Service[] = [
     fullDescription: 'We design high-level systems that handle millions of requests. Our architecture focuses on fault tolerance, security, and ultra-low latency.',
     icon: <Settings />,
     features: ['Microservices', 'Load Balancing', 'Database Scaling', 'Cloud Infrastructure'],
-    pricing: { basic: '₹24,999', pro: '₹44,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'Scalable System Design & Architecture in Pune | PrimeWenTech',
     metaDescription: 'Enterprise-grade system architecture and cloud infrastructure for high-traffic apps in Pune tech corridors of Hinjewadi and Baner.'
@@ -107,7 +107,7 @@ export const services: Service[] = [
     fullDescription: 'Automate repetitive tasks across your entire business ecosystem. We connect your tools and build custom workflows for maximum efficiency.',
     icon: <Zap />,
     features: ['Workflow Automation', 'ERP Integration', 'Process Optimization', 'Reporting'],
-    pricing: { basic: '₹9,999', pro: '₹19,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg'
   },
   {
@@ -117,7 +117,7 @@ export const services: Service[] = [
     fullDescription: 'Managed hosting solutions optimized for high traffic. We handle security, backups, and 99.99% uptime guarantees.',
     icon: <Cloud />,
     features: ['AWS/GCP/Azure', 'Managed Backups', 'DDoS Protection', 'SSL Certificates'],
-    pricing: { basic: '₹999/mo', pro: '₹2,499/mo', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg'
   },
   {
@@ -127,7 +127,7 @@ export const services: Service[] = [
     fullDescription: 'Our data-driven SEO strategies ensure your brand is seen. From technical audits to content marketing, we deliver measurable results.',
     icon: <Search />,
     features: ['Keyword Research', 'Technical SEO', 'Backlink Building', 'Performance Tracking'],
-    pricing: { basic: '₹4,999/mo', pro: '₹9,999/mo', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg'
   },
   {
@@ -137,7 +137,7 @@ export const services: Service[] = [
     fullDescription: 'When off-the-shelf software isn\'t enough, we build custom solutions that fit your specific needs and scale with your business.',
     icon: <Code2 />,
     features: ['Legacy Migration', 'Custom CRM/ERP', 'Desktop Apps', 'API Development'],
-    pricing: { basic: '₹34,999', pro: '₹74,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'Custom CRM Developers & Software Engineering in Pune',
     metaDescription: 'Build scalable solutions. From custom CRM development to legacy modernization, our Pune-based engineers deliver robust results using modern tech stacks.'
@@ -149,7 +149,7 @@ export const services: Service[] = [
     fullDescription: 'Align your technology with your business goals through our expert consulting services. We provide strategic roadmaps and cloud migration expertise.',
     icon: <Zap />,
     features: ['Digital Transformation', 'Cloud Strategy', 'IT Roadmap', 'Infrastructure Audit'],
-    pricing: { basic: '₹14,999', pro: '₹29,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'IT Strategy & Digital Transformation Consulting in Pune',
     metaDescription: 'Navigate the 2026 digital landscape. We help Pune businesses align technology with goals through strategic roadmaps and cloud migration services.'
@@ -161,7 +161,7 @@ export const services: Service[] = [
     fullDescription: 'Localized IT outsourcing and agile software engineering for SMEs in Hinjewadi. We provide the expertise needed for global-scale digital projects.',
     icon: <Code2 />,
     features: ['IT Outsourcing', 'Agile Engineering', 'Local Expertise', 'Scalable Teams'],
-    pricing: { basic: '₹24,999', pro: '₹44,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'Custom Software Development for SMEs in Hinjewadi | PrimeWenTech',
     metaDescription: 'Serving the Hinjewadi tech corridor with specialized IT outsourcing and agile software engineering. Local expertise for global-scale digital projects.'
@@ -173,7 +173,7 @@ export const services: Service[] = [
     fullDescription: 'Specialized Shopify and custom cart solutions designed for high conversion and security. We build stores optimized for the modern retail landscape.',
     icon: <Layout />,
     features: ['Shopify Experts', 'Custom Cart', 'Payment Integration', 'Inventory Sync'],
-    pricing: { basic: '₹19,999', pro: '₹34,999', enterprise: 'Custom' },
+    pricing: { basic: 'Custom', pro: 'Custom', enterprise: 'Custom' },
     image: '/main logo prime web.svg',
     metaTitle: 'E-commerce Website Development Agency in Baner, Pune',
     metaDescription: 'Specialized Shopify and custom cart solutions. We build secure, lightning-fast online stores optimized for Pune’s flourishing retail landscape.'

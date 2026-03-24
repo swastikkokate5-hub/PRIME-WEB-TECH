@@ -97,11 +97,31 @@ const Contact: React.FC = () => {
     { icon: <MapPin />, label: 'Visit Us', value: 'Narhe, Pune, Maharashtra 411041', color: 'primary' }
   ];
 
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Prime Web Tech",
+      "telephone": "+91 72768 15079",
+      "email": "Primewebtech1@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411041",
+        "streetAddress": "Narhe"
+      }
+    }
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
       <PageMeta 
-        title="Contact PrimeWenTech | Start Your Tech Journey in Pune" 
-        description="Ready to scale your business? Contact PrimeWenTech today for a free consultation on web development, AI automation, and IT strategy in Pune."
+        title="Contact Us | Prime Web Tech - Best IT Company in Pune, India" 
+        description="Get in touch with Prime Web Tech for expert web development, AI solutions, and custom software. Contact us today for a free consultation and project quote."
+        url="/contact"
+        schema={contactPageSchema}
       />
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
