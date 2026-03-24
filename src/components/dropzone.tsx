@@ -1,8 +1,7 @@
 import { cn } from '@/lib/utils'
-import { type UseSupabaseUploadReturn } from '@/hooks/use-supabase-upload'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, File, Loader2, Upload, X } from 'lucide-react'
-import { createContext, type PropsWithChildren, useCallback, useContext } from 'react'
+import { createContext, type PropsWithChildren, useCallback, useContext, useState, useMemo } from 'react'
 
 export const formatBytes = (
   bytes: number,
@@ -18,47 +17,70 @@ export const formatBytes = (
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
 
-type DropzoneContextType = Omit<UseSupabaseUploadReturn, 'getRootProps' | 'getInputProps'>
+interface FileWithPreview extends File {
+  preview?: string
+}
+
+type DropzoneContextType = {
+  files: FileWithPreview[]
+  setFiles: (files: FileWithPreview[]) => void
+  loading: boolean
+  successes: string[]
+  errors: { name: string; message: string }[]
+  onUpload: () => Promise<void>
+  maxFiles: number
+  maxFileSize: number
+  isSuccess: boolean
+  inputRef: React.RefObject<HTMLInputElement>
+}
 
 const DropzoneContext = createContext<DropzoneContextType | undefined>(undefined)
-
-type DropzoneProps = UseSupabaseUploadReturn & {
-  className?: string
-}
 
 const Dropzone = ({
   className,
   children,
-  getRootProps,
-  getInputProps,
-  ...restProps
-}: PropsWithChildren<DropzoneProps>) => {
-  const isSuccess = restProps.isSuccess
-  const isActive = restProps.isDragActive
-  const isInvalid =
-    (restProps.isDragActive && restProps.isDragReject) ||
-    (restProps.errors.length > 0 && !restProps.isSuccess) ||
-    restProps.files.some((file) => file.errors.length !== 0)
+  ...props
+}: PropsWithChildren<{ className?: string }>) => {
+  const [files, setFiles] = useState<FileWithPreview[]>([])
+  const [loading, setLoading] = useState(false)
+  const [successes, setSuccesses] = useState<string[]>([])
+  const [errors, setErrors] = useState<{ name: string; message: string }[]>([])
+  const maxFiles = 5
+  const maxFileSize = 10 * 1024 * 1024 // 10MB
+  const inputRef = React.useRef<HTMLInputElement>(null)
+
+  const isSuccess = useMemo(() => files.length > 0 && successes.length === files.length, [files, successes])
+
+  const onUpload = async () => {
+    setLoading(true)
+    // Simulate upload delay
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    setSuccesses(files.map(f => f.name))
+    setLoading(false)
+  }
 
   return (
-    <DropzoneContext.Provider value={{ ...restProps }}>
-      <div
-        {...getRootProps({
-          className: cn(
-            'border-2 border-gray-300 rounded-lg p-6 text-center bg-card transition-colors duration-300 text-foreground',
-            className,
-            isSuccess ? 'border-solid' : 'border-dashed',
-            isActive && 'border-primary bg-primary/10',
-            isInvalid && 'border-destructive bg-destructive/10'
-          ),
-        })}
-      >
-        <input {...getInputProps()} />
+    <DropzoneContext.Provider value={{ 
+      files, setFiles, loading, successes, errors, onUpload, 
+      maxFiles, maxFileSize, isSuccess, inputRef 
+    }}>
+      <div className={cn('border-2 border-dashed border-gray-300 rounded-lg p-6 text-center bg-card', className)}>
+        <input 
+          type="file" 
+          ref={inputRef} 
+          className="hidden" 
+          onChange={(e) => {
+            const uploadedFiles = Array.from(e.target.files || [])
+            setFiles(uploadedFiles.map(f => Object.assign(f, { preview: URL.createObjectURL(f) })))
+          }}
+          multiple={maxFiles > 1}
+        />
         {children}
       </div>
     </DropzoneContext.Provider>
   )
 }
+
 const DropzoneContent = ({ className }: { className?: string }) => {
   const {
     files,
@@ -66,13 +88,8 @@ const DropzoneContent = ({ className }: { className?: string }) => {
     onUpload,
     loading,
     successes,
-    errors,
-    maxFileSize,
-    maxFiles,
     isSuccess,
   } = useDropzoneContext()
-
-  const exceedMaxFiles = files.length > maxFiles
 
   const handleRemoveFile = useCallback(
     (fileName: string) => {
@@ -86,7 +103,7 @@ const DropzoneContent = ({ className }: { className?: string }) => {
       <div className={cn('flex flex-row items-center gap-x-2 justify-center', className)}>
         <CheckCircle size={16} className="text-primary" />
         <p className="text-primary text-sm">
-          Successfully uploaded {files.length} file{files.length > 1 ? 's' : ''}
+          Successfully processed {files.length} file{files.length > 1 ? 's' : ''}
         </p>
       </div>
     )
@@ -95,7 +112,6 @@ const DropzoneContent = ({ className }: { className?: string }) => {
   return (
     <div className={cn('flex flex-col', className)}>
       {files.map((file, idx) => {
-        const fileError = errors.find((e) => e.name === file.name)
         const isSuccessfullyUploaded = !!successes.find((e) => e === file.name)
 
         return (
@@ -103,7 +119,7 @@ const DropzoneContent = ({ className }: { className?: string }) => {
             key={`${file.name}-${idx}`}
             className="flex items-center gap-x-4 border-b py-2 first:mt-4 last:mb-4 "
           >
-            {file.type.startsWith('image/') ? (
+            {file.type?.startsWith('image/') ? (
               <div className="h-10 w-10 rounded border overflow-hidden shrink-0 bg-muted flex items-center justify-center">
                 <img src={file.preview} alt={file.name} className="object-cover" />
               </div>
@@ -117,22 +133,10 @@ const DropzoneContent = ({ className }: { className?: string }) => {
               <p title={file.name} className="text-sm truncate max-w-full">
                 {file.name}
               </p>
-              {file.errors.length > 0 ? (
-                <p className="text-xs text-destructive">
-                  {file.errors
-                    .map((e) =>
-                      e.message.startsWith('File is larger than')
-                        ? `File is larger than ${formatBytes(maxFileSize, 2)} (Size: ${formatBytes(file.size, 2)})`
-                        : e.message
-                    )
-                    .join(', ')}
-                </p>
-              ) : loading && !isSuccessfullyUploaded ? (
+              {loading && !isSuccessfullyUploaded ? (
                 <p className="text-xs text-muted-foreground">Uploading file...</p>
-              ) : !!fileError ? (
-                <p className="text-xs text-destructive">Failed to upload: {fileError.message}</p>
               ) : isSuccessfullyUploaded ? (
-                <p className="text-xs text-primary">Successfully uploaded file</p>
+                <p className="text-xs text-primary">Successfully processed file</p>
               ) : (
                 <p className="text-xs text-muted-foreground">{formatBytes(file.size, 2)}</p>
               )}
@@ -151,26 +155,20 @@ const DropzoneContent = ({ className }: { className?: string }) => {
           </div>
         )
       })}
-      {exceedMaxFiles && (
-        <p className="text-sm text-left mt-2 text-destructive">
-          You may upload only up to {maxFiles} files, please remove {files.length - maxFiles} file
-          {files.length - maxFiles > 1 ? 's' : ''}.
-        </p>
-      )}
-      {files.length > 0 && !exceedMaxFiles && (
+      {files.length > 0 && (
         <div className="mt-2">
           <Button
             variant="outline"
             onClick={onUpload}
-            disabled={files.some((file) => file.errors.length !== 0) || loading}
+            disabled={loading}
           >
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Uploading...
+                Processing...
               </>
             ) : (
-              <>Upload files</>
+              <>Process files</>
             )}
           </Button>
         </div>
