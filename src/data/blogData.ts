@@ -1,3 +1,5 @@
+import topWebTrendsImg from '../images/Top-Web-Development-Trends.jpg';
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -30,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-20',
     author: 'Prime Web Tech Team',
     category: 'Web Development',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
+    image: topWebTrendsImg,
     keywords: ['web development pune', 'tech trends 2024', 'software development maharashtra']
   },
   {

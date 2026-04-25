@@ -58,7 +58,7 @@ const BlogPost: React.FC = () => {
             <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {post.date}</span>
             <span className="flex items-center gap-1.5"><User className="w-3 h-3" /> {post.author}</span>
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-10 tracking-tighter leading-tight uppercase">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 tracking-tighter leading-tight uppercase font-oswald">
             {post.title}
           </h1>
           <div className="h-[400px] w-full rounded-[2.5rem] overflow-hidden mb-12 shadow-2xl relative">
@@ -71,7 +71,7 @@ const BlogPost: React.FC = () => {
           </div>
         </header>
 
-        <article className="prose prose-invert prose-p:text-muted-foreground prose-h2:text-foreground prose-h2:font-black prose-h2:tracking-tighter prose-h2:uppercase prose-p:font-medium max-w-none mb-20 blog-content">
+        <article className="prose prose-invert prose-p:text-muted-foreground prose-h2:text-foreground prose-h2:font-bold prose-h2:tracking-tighter prose-h2:uppercase prose-h2:font-oswald prose-p:font-medium max-w-none mb-20 blog-content">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
 

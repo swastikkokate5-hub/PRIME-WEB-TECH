@@ -44,7 +44,7 @@ const Blog: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold mb-8 tracking-tighter leading-tight font-oswald">
             Our <span className="gold-text-gradient">Insights</span>
           </h1>
           <p className="text-muted-foreground text-base md:text-xl leading-relaxed font-medium">
@@ -79,7 +79,7 @@ const Blog: React.FC = () => {
                     <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {post.date}</span>
                     <span className="flex items-center gap-1.5"><User className="w-3 h-3" /> {post.author}</span>
                   </div>
-                  <CardTitle className="text-xl font-black mb-3 tracking-tighter uppercase leading-tight hover:text-primary transition-colors">
+                  <CardTitle className="text-xl font-bold mb-3 tracking-tighter uppercase leading-tight hover:text-primary transition-colors font-oswald">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </CardTitle>
                   <CardDescription className="text-muted-foreground text-sm font-medium line-clamp-3 leading-relaxed">
