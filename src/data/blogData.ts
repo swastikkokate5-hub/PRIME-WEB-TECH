@@ -1,4 +1,9 @@
 import topWebTrendsImg from '../images/Top-Web-Development-Trends.jpg';
+import realEstateAiImg from '../images/How-is-AI-transforming-the-real-estate-industry-in-India-f.jpg';
+import ecommerceImg from '../images/og-How-to-Choose-the-Best-E-commerce-Platform-for-Your-Business.png';
+import uiuxImg from '../images/futureofuiux.jpg';
+import whatsappImg from '../images/whatappautomation.webp';
+import devCompanyImg from '../images/devcompany.jpg';
 
 export interface BlogPost {
   id: string;
@@ -51,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-22',
     author: 'AI Specialist',
     category: 'AI & Automation',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+    image: realEstateAiImg,
     keywords: ['ai chatbots real estate', 'business automation pune', 'whatsapp bot india']
   },
   {
@@ -70,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-23',
     author: 'E-commerce Expert',
     category: 'E-commerce',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
+    image: ecommerceImg,
     keywords: ['ecommerce website pune', 'online store maharashtra', 'digital sales india']
   },
   {
@@ -89,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-24',
     author: 'Lead Designer',
     category: 'UI/UX Design',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800',
+    image: uiuxImg,
     keywords: ['ui ux design pune', 'mobile app design india', 'app development trends']
   },
   {
@@ -107,7 +112,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-25',
     author: 'Automation Lead',
     category: 'AI & Automation',
-    image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&q=80&w=800',
+    image: whatsappImg,
     keywords: ['whatsapp bot development', 'business automation pune', 'customer support bots']
   },
   {
@@ -122,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     date: '2024-03-26',
     author: 'Tech Analyst',
     category: 'Software Development',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    image: devCompanyImg,
     keywords: ['software development pune', 'it company pune', 'tech hubs india']
   },
   {
