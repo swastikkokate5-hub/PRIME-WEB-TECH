@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Search, Rocket, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Search, Rocket, Sparkles } from 'lucide-react';
 import { services } from '@/data/services';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -61,97 +61,95 @@ const Services: React.FC = () => {
   );
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+    <div className="pt-28 md:pt-36 pb-24 min-h-screen relative overflow-hidden">
       <PageMeta 
         title="Expert IT Services in Pune | Web, App & AI Development | Prime Web Tech"
         description="Explore our premium IT services in Pune: Custom Web Development, Mobile Apps, AI Solutions, and Business Automation tailored for global success."
         url="/services"
         schema={servicesSchema}
       />
-      {/* Background Decor - Optimized */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
-      <div className="absolute top-1/4 left-1/4 w-full h-full bg-grid opacity-5 pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-1.5 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-8 shadow-md tracking-[0.2em] uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+      <div className="container-responsive relative z-10">
+        {/* Editorial Header */}
+        <div className="max-w-4xl mb-12 md:mb-16">
+          <div className="studio-eyebrow mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span>Our Elite Expertise</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-tight">Our <span className="gold-text-gradient">Premium</span> Services</h1>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <h1 className="hero-headline text-foreground mb-6" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: 0.98 }}>
+            Our <span className="text-primary">Premium</span> Services
+          </h1>
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
             Discover our world-class digital solutions, crafted for businesses 
             that demand the absolute best in design, performance, and strategic innovation.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Search and Filter - Optimized */}
-        <div className="max-w-2xl mx-auto mb-20">
-          <div className="relative group">
-            <div className="absolute inset-0 gold-gradient blur-xl opacity-3 group-focus-within:opacity-5 transition-all rounded-full" />
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5 group-focus-within:text-primary transition-colors" />
+        {/* Minimal Editorial Search Box */}
+        <div className="max-w-xl mb-14">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4 pointer-events-none" />
             <Input 
               type="text" 
-              placeholder="Search premium services..." 
-              className="w-full h-16 pl-16 pr-8 rounded-full glass border border-border focus:border-primary transition-all text-lg font-medium focus:ring-0"
+              placeholder="Filter services by capability..." 
+              className="w-full h-11 pl-11 pr-4 rounded-md border border-border bg-surface focus:border-primary transition-all text-sm font-normal focus:ring-1 focus:ring-primary shadow-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
 
+        {/* Services List / Grid — Editorial Studio Cards */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service, index) => (
               <motion.div
                 key={service.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                exit={{ opacity: 0, y: 16 }}
+                transition={{ duration: 0.35, delay: (index % 6) * 0.05 }}
               >
-                <Link to={`/services/${service.id}`}>
-                  <Card className="h-full glass border-none shadow-lg hover:shadow-primary/10 transition-all duration-300 group overflow-hidden rounded-[2.5rem] glow-gold-hover premium-shadow">
-                    <CardHeader className="p-10 pb-6">
-                      <motion.div 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
-                        className="mb-8 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-md group-hover:shadow-primary/15 transition-all"
-                      >
-                        {React.cloneElement(service.icon as React.ReactElement<any>, { 
-                          className: "w-8 h-8 text-black" 
-                        })}
-                      </motion.div>
-                      <CardTitle className="text-2xl font-black mb-2 tracking-tight group-hover:text-primary transition-colors uppercase tracking-tighter">
+                <Link to={`/services/${service.id}`} className="block h-full group">
+                  <Card className="studio-card h-full border border-border rounded-lg bg-surface p-7 flex flex-col justify-between transition-all duration-300 shadow-none">
+                    <CardHeader className="p-0 mb-6">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="w-10 h-10 rounded-md border border-border bg-surface-subtle flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
+                          {React.cloneElement(service.icon as React.ReactElement<any>, { 
+                            className: "w-5 h-5" 
+                          })}
+                        </div>
+                        <span className="mono-label text-[11px] text-muted-foreground">
+                          {index < 9 ? `0${index + 1}` : index + 1}
+                        </span>
+                      </div>
+                      <CardTitle className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                         {service.title}
                       </CardTitle>
                     </CardHeader>
                     
-                    <CardContent className="p-10 pt-0">
-                      <CardDescription className="text-muted-foreground text-sm leading-relaxed mb-10 min-h-[4rem] font-medium">
+                    <CardContent className="p-0">
+                      <CardDescription className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6 font-normal min-h-[3rem]">
                         {service.shortDescription}
                       </CardDescription>
                       
-                      <div className="pt-8 border-t border-border/50 flex items-center justify-between">
+                      <div className="pt-4 border-t border-border flex items-center justify-between">
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-1">Custom Plans</span>
-                          <span className="text-xl font-black text-foreground tracking-tighter hover:text-primary transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); window.location.href='/contact'; }}>Get Quote</span>
+                          <span className="mono-label text-[9px] text-muted-foreground">Custom Plans</span>
+                          <span 
+                            className="text-xs font-bold text-foreground hover:text-primary transition-colors cursor-pointer mt-0.5" 
+                            onClick={(e) => { e.preventDefault(); window.location.href='/contact'; }}
+                          >
+                            Get Quote &rarr;
+                          </span>
                         </div>
-                        <Button asChild size="icon" variant="ghost" className="h-12 w-12 rounded-full flex items-center justify-center text-primary hover-gold transition-all duration-300 shadow-sm">
-                          <Link to={`/services/${service.id}`}>
-                            <ArrowRight className="w-6 h-6" />
-                          </Link>
-                        </Button>
+                        <div className="w-8 h-8 rounded-md border border-border bg-surface-subtle flex items-center justify-center text-muted-foreground group-hover:text-primary group-hover:border-primary/50 transition-all">
+                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -162,10 +160,10 @@ const Services: React.FC = () => {
         </motion.div>
 
         {filteredServices.length === 0 && (
-          <div className="text-center py-40">
-            <Rocket className="w-20 h-20 text-muted-foreground mx-auto mb-8 animate-float" />
-            <h3 className="text-3xl font-black mb-4 tracking-tight">No premium services found</h3>
-            <p className="text-muted-foreground text-xl font-medium">Try searching for something else or contact us for custom solutions.</p>
+          <div className="text-center py-24 border border-dashed border-border rounded-lg bg-surface/50">
+            <Rocket className="w-12 h-12 text-muted-foreground/60 mx-auto mb-4" />
+            <h3 className="text-xl font-bold mb-2 text-foreground">No premium services found</h3>
+            <p className="text-muted-foreground text-sm max-w-md mx-auto">Try searching for something else or contact us for custom solutions.</p>
           </div>
         )}
       </div>
@@ -176,37 +174,38 @@ const Services: React.FC = () => {
         title="Our Work"
         subtitle="Real projects delivered for real businesses. Explore our portfolio of websites, apps, AI solutions, and automation tools."
       />
+
       {/* SEO Content Section */}
-      <section className="py-20 border-t border-border/30 bg-secondary/5">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-xl font-black mb-4 uppercase tracking-tighter">Web Development in Pune</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+      <section className="py-16 border-t border-border bg-surface/30">
+        <div className="container-responsive">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="border-l border-border pl-5">
+              <h2 className="text-base font-bold mb-2 uppercase tracking-tight text-foreground">Web Development in Pune</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-normal">
                 We provide professional web development in Pune, India and worldwide including React, Node.js, ecommerce, SaaS and custom websites. Our web solutions are built for performance and search visibility.
               </p>
             </div>
-            <div>
-              <h2 className="text-xl font-black mb-4 uppercase tracking-tighter">Custom Software Solutions</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+            <div className="border-l border-border pl-5">
+              <h2 className="text-base font-bold mb-2 uppercase tracking-tight text-foreground">Custom Software Solutions</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-normal">
                 As a leading custom software development company in Pune, we serve startups, established companies, and global clients with tailored software that solves complex business challenges.
               </p>
             </div>
-            <div>
-              <h2 className="text-xl font-black mb-4 uppercase tracking-tighter">AI Development Services</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+            <div className="border-l border-border pl-5">
+              <h2 className="text-base font-bold mb-2 uppercase tracking-tight text-foreground">AI Development Services</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-normal">
                 Our AI development services include chatbot creation, WhatsApp bot development, Telegram bot automation, calling AI agents, and advanced business automation systems for modern enterprises.
               </p>
             </div>
-            <div>
-              <h2 className="text-xl font-black mb-4 uppercase tracking-tighter">Professional UI UX Design</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+            <div className="border-l border-border pl-5">
+              <h2 className="text-base font-bold mb-2 uppercase tracking-tight text-foreground">Professional UI UX Design</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-normal">
                 We offer professional UI UX design services for web apps, mobile apps, and SaaS products, ensuring a premium user experience that drives engagement and conversion.
               </p>
             </div>
           </div>
-          <div className="mt-16 pt-10 border-t border-border/30 text-center max-w-4xl mx-auto">
-            <p className="text-muted-foreground text-xs leading-relaxed font-medium">
+          <div className="mt-12 pt-8 border-t border-border text-center max-w-3xl mx-auto">
+            <p className="mono-label text-[10px] text-muted-foreground leading-relaxed">
               All services are custom priced based on project requirements. 
               Contact us to get a quote for web development, mobile apps, AI, software and automation services.
             </p>

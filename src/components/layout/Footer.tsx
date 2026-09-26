@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import FooterNetworkGlobe from '@/components/common/FooterNetworkGlobe';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -21,47 +22,61 @@ const Footer: React.FC = () => {
     { name: 'Contact Sales', path: '/contact' },
   ];
 
-  return (
-    <footer className="bg-secondary/20 pt-24 pb-12 border-t border-border/50 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/5 blur-[100px] -z-10 rounded-full" />
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="flex flex-col gap-8">
+  return (
+    <footer className="border-t border-border bg-surface/40 pt-20 pb-12 relative overflow-hidden">
+      <div className="container-responsive relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-border">
+          {/* Brand Column */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <div className="w-8 h-8 rounded border border-border bg-surface flex items-center justify-center p-1 group-hover:border-primary/60 transition-colors">
                 <img src="/main logo prime web.svg" alt="PRIME WEB TECH Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-xl font-black tracking-tighter group-hover:text-primary transition-colors duration-500">
+              <span className="text-base font-bold tracking-tight text-foreground uppercase group-hover:text-primary transition-colors">
                 PRIME WEB TECH
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed font-medium max-w-xs">
+
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-normal max-w-sm">
               Empowering modern businesses with elite digital solutions,
               from high-end platforms to sophisticated AI systems.
             </p>
-            <div className="flex items-center gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <Link
+
+            <div className="flex items-center gap-2 pt-2">
+              {[
+                { Icon: Facebook, label: 'Facebook', href: '#' },
+                { Icon: Twitter, label: 'Twitter', href: '#' },
+                { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/prime_web_tech' },
+                { Icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/prime-web-tech/' }
+              ].map(({ Icon, label, href }, i) => (
+                <a
                   key={i}
-                  to="#"
-                  className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:gold-gradient hover:text-black hover:scale-110 transition-all duration-300 shadow-sm"
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={label}
+                  className="w-8 h-8 rounded border border-border bg-surface flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
                 >
-                  <Icon className="w-4 h-4" />
-                </Link>
+                  <Icon className="w-3.5 h-3.5" />
+                </a>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/50">Services</h4>
-            <ul className="flex flex-col gap-4">
+          {/* Services Column */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <div className="mono-label text-[10px] text-muted-foreground">// SERVICES</div>
+            <ul className="flex flex-col gap-2.5">
               {services.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
+                  <Link 
+                    to={link.path} 
+                    className="text-muted-foreground hover:text-foreground text-xs font-normal transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -69,13 +84,16 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/50">Company</h4>
-            <ul className="flex flex-col gap-4">
+          {/* Company Column */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <div className="mono-label text-[10px] text-muted-foreground">// COMPANY</div>
+            <ul className="flex flex-col gap-2.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
+                  <Link 
+                    to={link.path} 
+                    className="text-muted-foreground hover:text-foreground text-xs font-normal transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -83,49 +101,80 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/50">Get in Touch</h4>
-            <ul className="flex flex-col gap-6">
-              <li className="flex items-start gap-4 group">
-                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center text-primary shrink-0 group-hover:gold-gradient group-hover:text-black transition-all">
-                  <Mail className="w-4 h-4" />
-                </div>
+          {/* Get in Touch Column */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <div className="mono-label text-[10px] text-muted-foreground">// GET IN TOUCH</div>
+            <ul className="flex flex-col gap-3">
+              <li className="flex items-start gap-3">
+                <Mail className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</span>
-                  <span className="text-foreground text-sm font-bold">Primewebtech1@gmail.com</span>
+                  <span className="mono-label text-[9px] text-muted-foreground">Email</span>
+                  <a href="mailto:contact@primewebtech.online" className="text-foreground text-xs font-medium hover:text-primary transition-colors">
+                    contact@primewebtech.online
+                  </a>
                 </div>
               </li>
-              <li className="flex items-start gap-4 group">
-                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center text-primary shrink-0 group-hover:gold-gradient group-hover:text-black transition-all">
-                  <Phone className="w-4 h-4" />
-                </div>
+              <li className="flex items-start gap-3">
+                <Phone className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Phone</span>
-                  <span className="text-foreground text-sm font-bold">+91 72768 15079</span>
+                  <span className="mono-label text-[9px] text-muted-foreground">Phone</span>
+                  <span className="text-foreground text-xs font-medium">+91 72768 15079</span>
                 </div>
               </li>
-              <li className="flex items-start gap-4 group">
-                <div className="w-8 h-8 rounded-lg glass flex items-center justify-center text-primary shrink-0 group-hover:gold-gradient group-hover:text-black transition-all">
-                  <MapPin className="w-4 h-4" />
-                </div>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Office</span>
-                  <span className="text-foreground text-sm font-bold">Narhe, Pune, Maharashtra 411041</span>
+                  <span className="mono-label text-[9px] text-muted-foreground">Office</span>
+                  <span className="text-foreground text-xs font-medium">Narhe, Pune, Maharashtra 411041</span>
                 </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-[0.2em]">
-            © {currentYear} PRIME WEB TECH. ALL RIGHTS RESERVED.
+        {/* Colophon Sub-footer */}
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 relative z-10">
+          <p className="mono-label text-[10px] text-muted-foreground">
+            &copy; {currentYear} PRIME WEB TECH. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex items-center gap-8">
-            <Link to="#" className="text-muted-foreground hover:text-primary text-[10px] font-black uppercase tracking-widest transition-colors">Terms of Service</Link>
-            <Link to="#" className="text-muted-foreground hover:text-primary text-[10px] font-black uppercase tracking-widest transition-colors">Privacy Policy</Link>
+
+          <div className="flex items-center gap-6">
+            <Link to="#" className="mono-label text-[10px] text-muted-foreground hover:text-foreground transition-colors">
+              Terms of Service
+            </Link>
+            <Link to="#" className="mono-label text-[10px] text-muted-foreground hover:text-foreground transition-colors">
+              Privacy Policy
+            </Link>
+            <button
+              onClick={scrollToTop}
+              className="w-7 h-7 rounded border border-border bg-surface flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* 100% Transparent Decorative Animated Network Globe */}
+      <div 
+        className="footer-globe absolute pointer-events-none select-none z-[1] overflow-hidden bg-transparent
+          w-[380px] h-[380px] sm:w-[440px] sm:h-[440px]
+          right-[-180px] sm:right-[-210px]
+          top-[32%] sm:top-[30%]
+          md:w-[540px] md:h-[540px]
+          md:right-[-40px] md:top-auto md:bottom-[-200px]
+          lg:w-[650px] lg:h-[650px]
+          lg:right-[6%] lg:bottom-[-330px]
+          xl:w-[720px] xl:h-[720px]
+          xl:right-[10%] xl:bottom-[-370px]
+          2xl:w-[780px] 2xl:h-[780px]
+          2xl:right-[14%] 2xl:bottom-[-400px]
+        " 
+        style={{ background: 'transparent' }}
+        aria-hidden="true"
+      >
+        <FooterNetworkGlobe />
       </div>
     </footer>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { blogPosts } from '@/data/blogData';
 import PageMeta from '@/components/common/PageMeta';
@@ -36,7 +35,7 @@ const BlogPost: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+    <div className="pt-28 md:pt-36 pb-24 min-h-screen relative overflow-hidden">
       <PageMeta 
         title={`${post.title} | Prime Web Tech Blog`}
         description={post.excerpt}
@@ -44,52 +43,62 @@ const BlogPost: React.FC = () => {
         schema={postSchema}
       />
 
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
-
-      <div className="container mx-auto px-6 relative z-10 max-w-4xl">
-        <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-[11px] font-black uppercase tracking-widest mb-12 group">
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform" /> Back To Insights
+      <div className="container-responsive relative z-10 max-w-4xl">
+        <Link 
+          to="/blog" 
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-xs font-medium uppercase tracking-wider mb-10 transition-colors group"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" /> 
+          <span>Back To Insights</span>
         </Link>
 
-        <header className="mb-16">
-          <div className="flex items-center gap-4 text-[10px] text-primary font-black uppercase tracking-widest mb-6">
-            <span className="px-3 py-1 rounded-full glass border border-primary/20">{post.category}</span>
-            <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {post.date}</span>
-            <span className="flex items-center gap-1.5"><User className="w-3 h-3" /> {post.author}</span>
+        <header className="mb-12">
+          <div className="flex flex-wrap items-center gap-3 mono-label text-[10px] text-muted-foreground mb-4">
+            <span className="px-2.5 py-0.5 rounded border border-border bg-surface text-primary font-semibold">
+              {post.category}
+            </span>
+            <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3 text-primary" /> {post.date}</span>
+            <span>&bull;</span>
+            <span className="flex items-center gap-1.5"><User className="w-3 h-3 text-primary" /> {post.author}</span>
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 tracking-tighter leading-tight uppercase font-oswald">
+
+          <h1 className="hero-headline text-foreground mb-8" style={{ fontSize: 'clamp(2.25rem, 5vw, 4rem)', lineHeight: 1.05 }}>
             {post.title}
           </h1>
-          <div className="h-[400px] w-full rounded-[2.5rem] overflow-hidden mb-12 shadow-2xl relative">
-             <img 
-               src={post.image} 
-               alt={post.title} 
-               className="w-full h-full object-cover"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+          <div className="w-full aspect-[16/9] max-h-[460px] rounded-lg border border-border overflow-hidden mb-10 bg-surface-subtle">
+            <img 
+              src={post.image} 
+              alt={post.title} 
+              className="w-full h-full object-cover"
+            />
           </div>
         </header>
 
-        <article className="prose prose-invert prose-p:text-muted-foreground prose-h2:text-foreground prose-h2:font-bold prose-h2:tracking-tighter prose-h2:uppercase prose-h2:font-oswald prose-p:font-medium max-w-none mb-20 blog-content">
+        <article className="prose prose-neutral dark:prose-invert max-w-none mb-16 blog-content text-foreground/90 font-normal leading-relaxed text-base">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
 
-        <div className="border-t border-border/30 pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
-           <div className="flex items-center gap-4">
-              <span className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">Share this masterpiece</span>
-              <div className="flex gap-2">
-                 {[Facebook, Twitter, Linkedin, Share2].map((Icon, i) => (
-                   <Button key={i} variant="outline" size="icon" className="w-10 h-10 rounded-full glass border-border/50 hover:bg-primary hover:text-black transition-all">
-                      <Icon className="w-4 h-4" />
-                   </Button>
-                 ))}
-              </div>
-           </div>
-           
-           <Button asChild size="lg" className="gold-gradient text-black rounded-full px-10 h-14 text-sm font-black shadow-xl transition-all hover:scale-105 border-none uppercase tracking-widest">
-              <Link to="/contact">Discuss A Project</Link>
-           </Button>
+        <div className="border-t border-border pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <span className="mono-label text-[10px] text-muted-foreground">SHARE INSIGHT:</span>
+            <div className="flex gap-2">
+              {[Facebook, Twitter, Linkedin, Share2].map((Icon, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="w-8 h-8 rounded border border-border bg-surface flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+                  aria-label="Share article"
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <Button asChild className="rounded-md bg-foreground text-background hover:bg-primary hover:text-black px-6 h-10 text-xs font-bold uppercase tracking-wider transition-all border-none">
+            <Link to="/contact">Discuss A Project</Link>
+          </Button>
         </div>
       </div>
     </div>

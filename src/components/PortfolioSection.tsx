@@ -31,108 +31,71 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     : filteredProjects;
 
   return (
-    <section className="py-32 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="section-padding relative">
+      <div className="container-responsive">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <div className="inline-block mb-6">
-            <span className="px-6 py-3 rounded-full glass border border-primary/20 text-xs font-black uppercase tracking-[0.3em] text-primary">
-              Portfolio
-            </span>
-          </div>
-          <h2 className="text-6xl md:text-7xl font-black mb-8 tracking-tighter">
-            <span className="gradient-text">{title}</span>
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <div className="studio-eyebrow mb-3">03 / ARCHIVE</div>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            {title}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
             {subtitle}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Filter Tabs */}
+        {/* Minimalist Filter Tabs */}
         {showFilters && !filterByCategory && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4 mb-20"
-          >
-            {categories.map((category, index) => (
-              <motion.button
-                key={category.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                onClick={() => setActiveCategory(category.id as ProjectCategory)}
-                className={`
-                  px-8 py-4 rounded-full font-black text-sm uppercase tracking-widest
-                  transition-all duration-500 border-2
-                  ${activeCategory === category.id 
-                    ? 'gold-gradient text-black border-transparent shadow-2xl scale-105' 
-                    : 'glass border-primary/20 hover:border-primary/40 hover:scale-105'
-                  }
-                `}
-              >
-                {category.label}
-                <span className={`ml-3 px-2.5 py-1 rounded-full text-[10px] font-black ${
-                  activeCategory === category.id 
-                    ? 'bg-black/20 text-black' 
-                    : 'bg-primary/10 text-primary'
-                }`}>
-                  {category.count}
-                </span>
-              </motion.button>
-            ))}
-          </motion.div>
+          <div className="flex flex-wrap items-center gap-2 mb-12 pb-4 border-b border-border">
+            {categories.map((category) => {
+              const active = activeCategory === category.id;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id as ProjectCategory)}
+                  className={`px-3.5 py-1.5 rounded-md text-xs font-medium tracking-wider uppercase transition-all duration-200 border flex items-center gap-2 ${
+                    active
+                      ? 'border-primary bg-primary text-black font-semibold shadow-sm'
+                      : 'border-border bg-surface text-muted-foreground hover:text-foreground hover:border-foreground/30'
+                  }`}
+                >
+                  <span>{category.label}</span>
+                  <span
+                    className={`mono-label text-[10px] px-1.5 py-0.2 rounded ${
+                      active ? 'bg-black/15 text-black' : 'bg-muted text-muted-foreground'
+                    }`}
+                  >
+                    {category.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         )}
 
         {/* Projects Grid */}
         {displayProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {displayProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full glass flex items-center justify-center">
-              <span className="text-6xl">🔍</span>
-            </div>
-            <h3 className="text-3xl font-black mb-4">No Projects Found</h3>
-            <p className="text-muted-foreground text-lg">
+          <div className="text-center py-20 border border-dashed border-border rounded-lg bg-surface/50">
+            <h3 className="text-xl font-bold mb-2 text-foreground">No Projects Found</h3>
+            <p className="text-muted-foreground text-sm max-w-md mx-auto">
               We're currently working on projects in this category. Check back soon!
             </p>
-          </motion.div>
+          </div>
         )}
 
         {/* View All Button (if maxProjects is set) */}
         {maxProjects && filteredProjects.length > maxProjects && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <button className="px-12 py-5 rounded-full gold-gradient text-black font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-2xl">
+          <div className="text-center mt-12">
+            <button className="h-11 px-8 rounded-md bg-foreground text-background hover:bg-primary hover:text-black font-semibold text-xs uppercase tracking-wider transition-all">
               View All Projects
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

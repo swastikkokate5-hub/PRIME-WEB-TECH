@@ -12,7 +12,7 @@ const Portfolio: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+    <div className="pt-28 md:pt-32 pb-24 min-h-screen relative overflow-hidden">
       <PageMeta 
         title="Portfolio | Premium Web & AI Projects | Prime Web Tech"
         description="Explore the Prime Web Tech portfolio. Discover our successful web development, AI automation, and custom software projects delivered to global clients from Pune."

@@ -7,9 +7,9 @@ import {
   Sparkles,
   Linkedin,
   Twitter,
-  Mail
+  Mail,
+  ArrowRight
 } from 'lucide-react';
-// import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import PageMeta from '@/components/common/PageMeta';
@@ -53,100 +53,95 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+    <div className="pt-28 md:pt-36 pb-24 min-h-screen relative overflow-hidden">
       <PageMeta 
         title="About Prime Web Tech | Pune's Leading IT & AI Digital Agency" 
         description="Discover the mission and visionary team behind Prime Web Tech. We are Pune's premier technology partner for custom software, AI automation, and global digital excellence."
         url="/about"
         schema={breadcrumbSchema}
       />
-      {/* Background Decor - Optimized */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
-      <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <section className="text-center max-w-5xl mx-auto mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold mb-10 shadow-md tracking-[0.2em] uppercase">
-              <Sparkles className="w-4 h-4" />
-              <span>Elite Leadership</span>
-            </div>
-            <h1 className="text-4xl md:text-7xl font-black mb-10 tracking-tighter leading-tight">
-              We Build The <span className="gold-text-gradient">Future</span> Of Technology
-            </h1>
-            <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-              Founded with a mission to empower businesses through innovative digital solutions,
-              we've grown into a leading technology partner for global enterprises.
-            </p>
-          </motion.div>
+      <div className="container-responsive relative z-10">
+        {/* Editorial Studio Header */}
+        <section className="max-w-4xl mb-20 md:mb-24">
+          <div className="studio-eyebrow mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>Elite Leadership</span>
+          </div>
+          <h1 className="hero-headline text-foreground mb-6" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: 0.98 }}>
+            We Build The <span className="text-primary">Future</span> Of Technology
+          </h1>
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
+            Founded with a mission to empower businesses through innovative digital solutions,
+            we've grown into a leading technology partner for global enterprises.
+          </p>
         </section>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mb-32 max-w-5xl mx-auto">
+        {/* Minimalist Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-24 py-8 border-y border-border">
           {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center group"
-            >
-              <div className="text-5xl md:text-7xl font-black text-primary mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+            <div key={i} className="pl-4 sm:pl-6 border-l border-border">
+              <div className="mono-label text-[10px] text-muted-foreground mb-1">{stat.label}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground font-display">
                 {stat.value}
               </div>
-              <div className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.3em]">{stat.label}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* Founders Section */}
-        <section className="mb-32">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter">The Visionary Team</h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-medium">Meet the minds behind our premium technology and design language.</p>
+        {/* Visionary Team Section */}
+        <section className="mb-28">
+          <div className="max-w-3xl mb-14">
+            <div className="studio-eyebrow mb-3">06 / LEADERSHIP</div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
+              The Visionary Team
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base font-normal">
+              Meet the minds behind our premium technology and design language.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {team.map((person, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -10 }}
-                className="group perspective-1000"
+                className="studio-card border border-border rounded-lg bg-surface overflow-hidden flex flex-col justify-between group"
               >
-                <div className="relative glass p-4 rounded-[3rem] shadow-lg border-none transition-all duration-300 glow-gold-hover premium-shadow">
-                  <div className="relative h-[380px] w-full overflow-hidden rounded-[2.5rem] mb-8 shadow-md group-hover:scale-[1.01] transition-all">
+                <div>
+                  <div className="relative aspect-[4/4.5] overflow-hidden border-b border-border bg-surface-subtle">
                     <img
                       src={person.image}
                       alt={person.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 brightness-75 group-hover:brightness-100"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-10">
-                      <div className="flex gap-5">
-                        {[Linkedin, Twitter, Mail].map((Icon, idx) => (
-                          <Link
-                            key={idx}
-                            to="#"
-                            className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-black hover:scale-110 transition-all shadow-md"
-                          >
-                            <Icon className="w-5 h-5" />
-                          </Link>
-                        ))}
-                      </div>
+                    <div className="absolute bottom-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {[Linkedin, Twitter, Mail].map((Icon, idx) => (
+                        <Link
+                          key={idx}
+                          to="#"
+                          className="w-7 h-7 rounded border border-border bg-background/90 backdrop-blur-md flex items-center justify-center text-foreground hover:text-primary transition-colors"
+                          aria-label="Contact leader"
+                        >
+                          <Icon className="w-3.5 h-3.5" />
+                        </Link>
+                      ))}
                     </div>
                   </div>
-                  <div className="px-6 pb-6">
-                    <h3 className="text-2xl font-black mb-1 tracking-tight group-hover:text-primary transition-colors text-foreground uppercase tracking-tighter">{person.name}</h3>
-                    <div className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-5">{person.role}</div>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-medium">{person.desc}</p>
+
+                  <div className="p-6">
+                    <div className="mono-label text-[10px] text-primary mb-1">{person.role}</div>
+                    <h3 className="text-xl font-bold tracking-tight text-foreground mb-3">{person.name}</h3>
+                    <p className="text-muted-foreground text-xs sm:text-sm font-normal leading-relaxed">{person.desc}</p>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 pt-0">
+                  <div className="pt-4 border-t border-border mono-label text-[10px] text-muted-foreground/60">
+                    EXECUTIVE // 0{i + 1}
                   </div>
                 </div>
               </motion.div>
@@ -154,93 +149,91 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* Mission / Vision Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-16 md:p-20 rounded-[3.5rem] glass border-none hover:bg-secondary/20 transition-all duration-700 shadow-2xl group glow-gold-hover premium-shadow"
-          >
-            <div className="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mb-10 shadow-xl group-hover:scale-110 transition-transform">
-              <Rocket className="w-8 h-8 text-black" />
+        {/* Mission / Vision Section — Editorial Split Pair */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-28">
+          <div className="studio-card p-8 md:p-12 border border-border rounded-lg bg-surface flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-md border border-border bg-surface-subtle flex items-center justify-center text-primary mb-6">
+                <Rocket className="w-5 h-5" />
+              </div>
+              <div className="mono-label text-[10px] text-muted-foreground mb-2">CORE PURPOSE</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight text-foreground uppercase">Our Mission</h2>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-normal">
+                To bridge the gap between imagination and reality by building the world's most
+                sophisticated digital systems, empowering brands to redefine what's possible in the AI era.
+              </p>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase">Our Mission</h2>
-            <p className="text-base md:text-xl text-muted-foreground leading-relaxed font-medium">
-              To bridge the gap between imagination and reality by building the world's most
-              sophisticated digital systems, empowering brands to redefine what's possible in the AI era.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-16 md:p-20 rounded-[3.5rem] bg-primary text-black border-none shadow-2xl hover:scale-[1.01] transition-all duration-700 group premium-shadow"
-          >
-            <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center mb-10 shadow-xl group-hover:scale-110 transition-transform">
-              <Target className="w-8 h-8 text-primary" />
+          </div>
+
+          <div className="p-8 md:p-12 border border-border rounded-lg bg-foreground text-background flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-md border border-background/20 bg-background/10 flex items-center justify-center text-primary mb-6">
+                <Target className="w-5 h-5" />
+              </div>
+              <div className="mono-label text-primary text-[10px] mb-2">FUTURE HORIZON</div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight text-background uppercase">Our Vision</h2>
+              <p className="text-sm md:text-base text-background/80 leading-relaxed font-normal">
+                To become the global gold standard for digital technology services, known for
+                unparalleled luxury in code, elite craftsmanship in AI, and timeless results.
+              </p>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase">Our Vision</h2>
-            <p className="text-base md:text-xl opacity-80 leading-relaxed font-black">
-              To become the global gold standard for digital technology services, known for
-              unparalleled luxury in code, elite craftsmanship in AI, and timeless results.
-            </p>
-          </motion.div>
+          </div>
         </section>
 
         {/* Journey Section */}
-        <section className="py-24 relative overflow-hidden bg-background">
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-16">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="lg:w-1/2"
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight leading-tight">Our Journey To <span className="gold-text-gradient">Global Tech Leadership</span></h2>
-                <div className="space-y-4 text-sm text-muted-foreground leading-relaxed font-medium">
-                  <p>
-                    Our story began with a simple idea: that technology should be accessible, scalable, and human-centric. What started as a small team of three developers has now grown into a diverse global workforce of over 50 technology experts.
-                  </p>
-                  <p>
-                    Throughout our journey, we've stayed true to our core mission of helping businesses bridge the gap between their vision and reality through world-class software engineering and strategic digital innovation.
-                  </p>
-                  <p>
-                    Today, we're proud to be the trusted technology partner for over 500 companies across various industries, from fintech and healthcare to e-commerce and AI-driven startups.
+        <section className="py-16 border-t border-border">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-6">
+              <div className="studio-eyebrow mb-3">07 / EVOLUTION</div>
+              <h2 className="text-2xl md:text-4xl font-bold mb-6 tracking-tight text-foreground leading-snug">
+                Our Journey To <span className="text-primary">Global Tech Leadership</span>
+              </h2>
+              <div className="space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal">
+                <p>
+                  Our story began with a simple idea: that technology should be accessible, scalable, and human-centric. What started as a small team of three developers has now grown into a diverse global workforce of over 50 technology experts.
+                </p>
+                <p>
+                  Throughout our journey, we've stayed true to our core mission of helping businesses bridge the gap between their vision and reality through world-class software engineering and strategic digital innovation.
+                </p>
+                <p>
+                  Today, we're proud to be the trusted technology partner for over 500 companies across various industries, from fintech and healthcare to e-commerce and AI-driven startups.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 flex flex-col space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">What We're Building Towards</h3>
+              
+              <div className="studio-card p-6 border border-border rounded-lg bg-surface flex items-start gap-4">
+                <div className="w-9 h-9 rounded-md border border-border bg-surface-subtle flex items-center justify-center text-primary shrink-0">
+                  <Rocket className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold tracking-tight text-foreground uppercase mb-1">Global Expansion</h4>
+                  <p className="text-muted-foreground text-xs leading-relaxed font-normal">
+                    Expanding our footprint with new Innovation Centers in 5 countries over the next 2 years.
                   </p>
                 </div>
-              </motion.div>
-              <div className="lg:w-1/2 flex flex-col justify-center space-y-8">
-                <h2 className="text-2xl md:text-4xl font-bold tracking-tighter leading-tight">What We're Building Towards</h2>
-                <div className="space-y-8">
-                  <motion.div
-                    whileHover={{ x: 10 }}
-                    className="flex items-start gap-6 group"
-                  >
-                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary transition-all shadow-md">
-                      <Rocket className="w-6 h-6 text-primary group-hover:text-black" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold mb-1 tracking-tight">Global Expansion</h4>
-                      <p className="text-muted-foreground text-xs leading-relaxed font-medium">Expanding our footprint with new Innovation Centers in 5 countries over the next 2 years.</p>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ x: 10 }}
-                    className="flex items-start gap-6 group"
-                  >
-                    <div className="p-3 rounded-xl bg-accent/10 border border-accent/10 group-hover:bg-accent transition-all shadow-md">
-                      <Users className="w-6 h-6 text-accent group-hover:text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold mb-1 tracking-tight">Community Growth</h4>
-                      <p className="text-muted-foreground text-xs leading-relaxed font-medium">Supporting the next generation of tech talent through our scholarship and mentorship programs.</p>
-                    </div>
-                  </motion.div>
+              </div>
+
+              <div className="studio-card p-6 border border-border rounded-lg bg-surface flex items-start gap-4">
+                <div className="w-9 h-9 rounded-md border border-border bg-surface-subtle flex items-center justify-center text-primary shrink-0">
+                  <Users className="w-4 h-4" />
                 </div>
-                <Button asChild size="lg" className="w-fit rounded-full px-10 h-12 text-sm font-bold shadow-md border-none transition-all hover:scale-105 gold-gradient text-black">
-                  <Link to="/contact">Join Our Team</Link>
+                <div>
+                  <h4 className="text-sm font-bold tracking-tight text-foreground uppercase mb-1">Community Growth</h4>
+                  <p className="text-muted-foreground text-xs leading-relaxed font-normal">
+                    Supporting the next generation of tech talent through our scholarship and mentorship programs.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Button asChild className="rounded-md px-6 h-10 text-xs font-bold uppercase tracking-wider bg-foreground text-background hover:bg-primary hover:text-black border-none transition-all">
+                  <Link to="/contact" className="inline-flex items-center gap-1.5">
+                    <span>Join Our Team</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </Button>
               </div>
             </div>

@@ -23,6 +23,12 @@ export default {
             }
         },
         extend: {
+            fontFamily: {
+                sans: ['var(--font-body)', 'Archivo', '"Neue Haas Grotesk"', 'Inter', 'sans-serif'],
+                display: ['var(--font-display)', 'Archivo', '"Neue Haas Grotesk"', '"Inter Tight"', 'sans-serif'],
+                mono: ['var(--font-mono)', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
+                oswald: ['var(--font-display)', 'Archivo', '"Neue Haas Grotesk"', 'sans-serif'],
+            },
             colors: {
                 border: 'hsl(var(--border))',
                 borderColor: {

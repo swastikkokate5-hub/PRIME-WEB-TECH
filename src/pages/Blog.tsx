@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight } from 'lucide-react';
+import { Calendar, User, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { blogPosts } from '@/data/blogData';
 import PageMeta from '@/components/common/PageMeta';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -30,66 +30,77 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background relative overflow-hidden">
+    <div className="pt-28 md:pt-36 pb-24 min-h-screen relative overflow-hidden">
       <PageMeta 
-        title="Blog | Latest Insights in Web Dev & AI | Prime Web Tech"
+        title="Blog | Latest Insights in Web Dev & AI | Prime Web Tech" 
         description="Stay ahead with the Prime Web Tech blog. Expert articles on the latest trends in web development, AI automation, and business digital transformation."
         url="/blog"
         schema={blogListSchema}
       />
-      
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 blur-[60px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-accent/3 blur-[50px] -z-10 rounded-full" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="text-4xl md:text-7xl font-bold mb-8 tracking-tighter leading-tight font-oswald">
-            Our <span className="gold-text-gradient">Insights</span>
+      <div className="container-responsive relative z-10">
+        {/* Editorial Header */}
+        <div className="max-w-4xl mb-16 md:mb-20">
+          <div className="studio-eyebrow mb-4">05 / PERSPECTIVES</div>
+          <h1 className="hero-headline text-foreground mb-6" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: 0.98 }}>
+            Our <span className="text-primary">Insights</span>
           </h1>
-          <p className="text-muted-foreground text-base md:text-xl leading-relaxed font-medium">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
             Explore our latest thoughts on technology, design, and the future of AI automation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Editorial Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {blogPosts.map((post, i) => (
             <motion.div
               key={post.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: (i % 6) * 0.08, duration: 0.5 }}
             >
-              <Card className="glass h-full flex flex-col overflow-hidden border-none hover:shadow-2xl transition-all duration-500 premium-shadow">
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full glass border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest shadow-lg">
-                      {post.category}
-                    </span>
+              <Card className="studio-card h-full border border-border rounded-lg bg-surface flex flex-col justify-between overflow-hidden shadow-none group">
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-surface-subtle">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="mono-label text-[10px] px-2.5 py-1 rounded bg-background/90 backdrop-blur-md border border-border text-foreground">
+                        {post.category}
+                      </span>
+                    </div>
                   </div>
+
+                  <CardHeader className="p-6 pb-3">
+                    <div className="flex items-center gap-3 mono-label text-[10px] text-muted-foreground mb-3">
+                      <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3 text-primary" /> {post.date}</span>
+                      <span>&bull;</span>
+                      <span className="flex items-center gap-1.5"><User className="w-3 h-3 text-primary" /> {post.author}</span>
+                    </div>
+                    <CardTitle className="text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors leading-snug">
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground text-xs sm:text-sm font-normal line-clamp-3 leading-relaxed mt-2.5">
+                      {post.excerpt}
+                    </CardDescription>
+                  </CardHeader>
                 </div>
-                <CardHeader className="p-8 pb-4">
-                  <div className="flex items-center gap-4 text-[10px] text-muted-foreground font-bold uppercase tracking-widest mb-4">
-                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {post.date}</span>
-                    <span className="flex items-center gap-1.5"><User className="w-3 h-3" /> {post.author}</span>
+
+                <CardContent className="p-6 pt-0 mt-auto">
+                  <div className="pt-4 border-t border-border flex items-center justify-between">
+                    <Link 
+                      to={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors"
+                    >
+                      <span>Read Full Article</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground/60 group-hover:text-primary transition-colors" />
                   </div>
-                  <CardTitle className="text-xl font-bold mb-3 tracking-tighter uppercase leading-tight hover:text-primary transition-colors font-oswald">
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground text-sm font-medium line-clamp-3 leading-relaxed">
-                    {post.excerpt}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-8 pt-0 mt-auto">
-                  <Button asChild variant="link" className="p-0 text-primary font-black uppercase text-[11px] tracking-widest gap-2 hover:gap-4 transition-all">
-                    <Link to={`/blog/${post.slug}`}>Read Full Article <ArrowRight className="w-4 h-4" /></Link>
-                  </Button>
                 </CardContent>
               </Card>
             </motion.div>

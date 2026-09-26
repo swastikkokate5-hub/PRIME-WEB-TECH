@@ -16,122 +16,135 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-      className="group h-full"
+      transition={{ delay: (index % 6) * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="h-full"
     >
-      <Card className="h-full glass border-none shadow-2xl hover:shadow-primary/20 transition-all duration-700 rounded-[3rem] overflow-hidden glow-gold-hover premium-shadow">
-        <CardContent className="p-0">
-          {/* Image/Video Section */}
-          <div className={`relative overflow-hidden ${isMobileApp ? 'bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center py-12' : ''}`}>
-            {hasVideo ? (
-              <div className="relative w-full aspect-video bg-black/50">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all">
-                  <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <Play className="w-10 h-10 text-black ml-1" />
+      <Card className="studio-card h-full border border-border rounded-lg bg-surface overflow-hidden flex flex-col justify-between shadow-none group">
+        <CardContent className="p-0 flex flex-col h-full justify-between">
+          {/* Media Showcase Container */}
+          <div>
+            <div className="relative overflow-hidden border-b border-border bg-surface-subtle">
+              {hasVideo ? (
+                <div className="relative w-full aspect-video bg-black/60">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-85 group-hover:scale-102 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/15 transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-black shadow-md group-hover:scale-110 transition-transform">
+                      <Play className="w-5 h-5 ml-0.5" />
+                    </div>
                   </div>
                 </div>
+              ) : (
+                <div className={`relative ${isMobileApp ? 'py-8 flex items-center justify-center' : 'w-full aspect-video'} overflow-hidden`}>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className={`object-cover transition-transform duration-500 group-hover:scale-103 ${
+                      isMobileApp
+                        ? 'w-44 h-auto rounded-md border border-border shadow-md'
+                        : 'w-full h-full'
+                    }`}
+                  />
+                </div>
+              )}
+
+              {/* Category Stamp Tag */}
+              <div className="absolute top-3 left-3">
+                <span className="mono-label text-[10px] px-2.5 py-1 rounded bg-background/90 backdrop-blur-md border border-border text-foreground">
+                  {project.category}
+                </span>
               </div>
-            ) : (
-              <div className={`relative ${isMobileApp ? 'w-64 mx-auto' : 'w-full aspect-video'} overflow-hidden`}>
-                {isMobileApp && (
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-primary/10 rounded-[3rem] pointer-events-none" />
-                )}
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${
-                    isMobileApp ? 'rounded-[2.5rem] shadow-2xl border-8 border-black/20' : ''
-                  }`}
-                />
+            </div>
+
+            {/* Editorial Content */}
+            <div className="p-6">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-8 h-8 rounded border border-border bg-surface-subtle flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  {project.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="mono-label text-[10px] text-muted-foreground mb-1">
+                    PROJECT // 0{index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors truncate">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
-            )}
+
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                {project.description}
+              </p>
+
+              {/* Tech Stack List */}
+              <div className="mb-6">
+                <div className="mono-label text-[10px] text-muted-foreground/80 mb-2">
+                  TECHNOLOGY STACK
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.techStack.map((tech, i) => (
+                    <span 
+                      key={i}
+                      className="mono-label text-[10px] px-2 py-0.5 rounded border border-border bg-surface-subtle text-foreground/80"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Features List */}
+              {project.features && project.features.length > 0 && (
+                <div className="mb-6 pt-4 border-t border-border">
+                  <div className="mono-label text-[10px] text-muted-foreground/80 mb-2">
+                    KEY CAPABILITIES
+                  </div>
+                  <ul className="space-y-1.5">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-foreground/85 font-normal">
+                        <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Content Section */}
-          <div className="p-10">
-            {/* Icon & Title */}
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform">
-                {project.icon}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-black mb-2 tracking-tight group-hover:text-primary transition-colors uppercase tracking-tighter">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Tech Stack */}
-            <div className="mb-8">
-              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-4">
-                Tech Stack
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech, i) => (
-                  <span 
-                    key={i}
-                    className="px-4 py-2 rounded-full glass text-xs font-bold border border-primary/20 hover:border-primary/40 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Features (for AI/WhatsApp projects) */}
-            {project.features && project.features.length > 0 && (
-              <div className="mb-8">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-4">
-                  Key Features
-                </div>
-                <ul className="space-y-2">
-                  {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm font-medium text-foreground/80">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+          {/* Action Footer */}
+          <div className="p-6 pt-0 mt-auto">
+            <div className="flex gap-2.5 pt-4 border-t border-border">
               {hasVideo ? (
                 <Button 
                   onClick={() => window.open(project.videoUrl, '_blank')}
-                  className="flex-1 rounded-full gold-gradient text-black font-black h-12 text-sm uppercase tracking-widest hover:scale-105 transition-all border-none shadow-lg"
+                  className="flex-1 h-9 rounded-md bg-foreground text-background hover:bg-primary hover:text-black font-semibold text-xs uppercase tracking-wider transition-all"
                 >
-                  <Play className="w-4 h-4 mr-2" />
+                  <Play className="w-3.5 h-3.5 mr-1.5" />
                   Watch Demo
                 </Button>
               ) : project.liveUrl ? (
                 <Button 
-                  className="flex-1 rounded-full gold-gradient text-black font-black h-12 text-sm uppercase tracking-widest hover:scale-105 transition-all border-none shadow-lg"
+                  className="flex-1 h-9 rounded-md bg-foreground text-background hover:bg-primary hover:text-black font-semibold text-xs uppercase tracking-wider transition-all"
                   asChild
                 >
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" />
+                    <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
                     Visit Website
                   </a>
                 </Button>
               ) : (
                 <Button 
                   onClick={() => {}}
-                  className="flex-1 rounded-full gold-gradient text-black font-black h-12 text-sm uppercase tracking-widest hover:scale-105 transition-all border-none shadow-lg"
+                  className="flex-1 h-9 rounded-md bg-foreground text-background hover:bg-primary hover:text-black font-semibold text-xs uppercase tracking-wider transition-all"
                 >
-                  <Eye className="w-4 h-4 mr-2" />
+                  <Eye className="w-3.5 h-3.5 mr-1.5" />
                   View Preview
                 </Button>
               )}
@@ -139,7 +152,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               <Button 
                 onClick={() => {}}
                 variant="outline"
-                className="flex-1 rounded-full border-2 font-black h-12 text-sm uppercase tracking-widest hover:scale-105 transition-all"
+                className="h-9 px-4 rounded-md border border-border text-foreground hover:bg-muted font-semibold text-xs uppercase tracking-wider transition-all"
               >
                 Details
               </Button>
