@@ -123,6 +123,8 @@ const ServiceDetail: React.FC = () => {
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-auto rounded object-contain" 
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             )}

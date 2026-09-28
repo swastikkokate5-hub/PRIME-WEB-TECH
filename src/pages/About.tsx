@@ -19,19 +19,19 @@ const About: React.FC = () => {
     {
       name: 'Vaibhav Wani',
       role: 'Founder',
-      image: '/images/about_page_image/vaibhav.jpeg',
+      image: '/images/about_page_image/vaibhav.webp',
       desc: 'Visionary technologist with a passion for building scalable digital systems and innovative AI solutions.'
     },
     {
       name: 'Rahul Kumar',
       role: 'Co-Founder',
-      image: '/images/about_page_image/rahul.jpeg',
+      image: '/images/about_page_image/rahul.webp',
       desc: 'Expert in strategic planning and technical architecture, driving the company\'s global expansion.'
     },
     {
       name: 'Swastik Kokate',
       role: 'CEO & CMO',
-      image: '/images/about_page_image/swastik.jpeg',
+      image: '/images/about_page_image/swastik.webp',
       desc: 'Creative lead and operational head, ensuring Prime Web Tech remains at the forefront of digital excellence.'
     }
   ];
@@ -117,6 +117,8 @@ const About: React.FC = () => {
                       src={person.image}
                       alt={person.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute bottom-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                       {[Linkedin, Twitter, Mail].map((Icon, idx) => (

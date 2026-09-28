@@ -71,6 +71,7 @@ const BlogPost: React.FC = () => {
               src={post.image} 
               alt={post.title} 
               className="w-full h-full object-cover"
+              decoding="async"
             />
           </div>
         </header>

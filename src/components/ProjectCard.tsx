@@ -33,6 +33,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover opacity-85 group-hover:scale-102 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/15 transition-colors">
                     <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-black shadow-md group-hover:scale-110 transition-transform">
@@ -50,6 +52,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                         ? 'w-44 h-auto rounded-md border border-border shadow-md'
                         : 'w-full h-full'
                     }`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               )}
@@ -70,7 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="mono-label text-[10px] text-muted-foreground mb-1">
-                    PROJECT // 0{index + 1}
+                    PROJECT {'//'} 0{index + 1}
                   </div>
                   <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors truncate">
                     {project.title}

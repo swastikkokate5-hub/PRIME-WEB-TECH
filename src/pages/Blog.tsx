@@ -67,6 +67,8 @@ const Blog: React.FC = () => {
                       src={post.image} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-3 left-3">
                       <span className="mono-label text-[10px] px-2.5 py-1 rounded bg-background/90 backdrop-blur-md border border-border text-foreground">

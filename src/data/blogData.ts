@@ -1,7 +1,7 @@
 import topWebTrendsImg from '../images/Top-Web-Development-Trends.jpg';
 import realEstateAiImg from '../images/How-is-AI-transforming-the-real-estate-industry-in-India-f.jpg';
 import ecommerceImg from '../images/og-How-to-Choose-the-Best-E-commerce-Platform-for-Your-Business.png';
-import uiuxImg from '../images/futureofuiux.jpg';
+import uiuxImg from '../images/futureofuiux.webp';
 import whatsappImg from '../images/whatappautomation.webp';
 import devCompanyImg from '../images/devcompany.jpg';
 

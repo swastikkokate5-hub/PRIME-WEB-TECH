@@ -16,13 +16,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { services } from '@/data/services';
 import PageMeta from '@/components/common/PageMeta';
-import businessHero from '../images/image.png';
-import websiteImg from '../images/services_main_img/website.png';
-import appImg from '../images/services_main_img/app.png';
-import mlImg from '../images/services_main_img/ml.png';
-import aiAgentImg from '../images/services_main_img/ai agent.png';
-import businessAutomationImg from '../images/services_main_img/business automation.png';
-import cloudImg from '../images/services_main_img/cloud.png';
+import businessHero from '../images/image.webp';
+import websiteImg from '../images/services_main_img/website.webp';
+import appImg from '../images/services_main_img/app.webp';
+import mlImg from '../images/services_main_img/ml.webp';
+import aiAgentImg from '../images/services_main_img/ai-agent.webp';
+import businessAutomationImg from '../images/services_main_img/business-automation.webp';
+import cloudImg from '../images/services_main_img/cloud.webp';
 
 const Home: React.FC = () => {
   const [reducedMotion, setReducedMotion] = useState(false);
